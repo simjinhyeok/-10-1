@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg3786"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="Aurora_Geomagnetism_fromGround.svg">
+  <defs
+     id="defs3788">
+    <clipPath
+       id="clipEmfPath1"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3799"
+         d="m 662.421,594.619 439.209,0 0,417.611 -439.209,0 z" />
+    </clipPath>
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.35"
+     inkscape:cx="375"
+     inkscape:cy="520"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3791">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="レイヤー 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g3845"
+       transform="matrix(5.9743588,0,0,5.9743592,-1111.33,-887.14181)">
+      <path
+         transform="scale(0.28222222,0.28222222)"
+         inkscape:connector-curvature="0"
+         id="path3802"
+         d="m 693.172,724.373 c 26.251,-13.651 52.502,-27.376 78.377,-28.801 25.951,-1.425 51.827,20.401 77.178,20.176 25.351,-0.225 45.826,-22.576 74.777,-21.601 28.876,0.975 72.302,26.401 98.856,27.376 26.47,0.975 50.4,-17.551 60.22,-21.601"
+         clip-path="url(#clipEmfPath1)"
+         style="fill:none;stroke:#92d050;stroke-width:95.40300751px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         transform="scale(0.28222222,0.28222222)"
+         inkscape:connector-curvature="0"
+         id="path3804"
+         d="m 677.759,664.483 38.289,107.404 -3.676,1.312 -38.288,-107.422 3.675,-1.294 z m 41.307,104.273 -1.575,12.975 -9.431,-9.057 11.006,-3.918 z"
+         clip-path="url(#clipEmfPath1)"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.01875059px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3806"
+         d="m 276.21258,181.3512 12.98618,37.28607 -1.03858,0.35984 -12.99549,-37.27563 1.04789,-0.37028 z m 13.8526,36.4078 -0.47414,3.66183 -2.64724,-2.58233 3.12138,-1.0795 z"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.01058367px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3808"
+         d="m 202.7936,181.3512 10.80601,30.31152 -1.03717,0.37055 -10.80601,-30.31687 1.03717,-0.3652 z m 11.65804,29.42788 -0.4445,3.66183 -2.66192,-2.5558 3.10642,-1.10603 z"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.00529183px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3810"
+         d="m 218.71686,179.74762 11.52539,34.35462 -1.04225,0.3494 -11.52567,-34.34927 1.04253,-0.35475 z m 12.39351,33.48143 -0.51337,3.65675 -2.61958,-2.60886 3.13295,-1.04789 z"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.00529183px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3812"
+         d="m 262.23158,179.74254 11.98061,33.60307 -1.03717,0.37027 -11.98061,-33.60307 1.03717,-0.37027 z m 12.82728,32.71407 -0.4445,3.67255 -2.65656,-2.56144 3.10106,-1.11111 z"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.01058367px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3814"
+         d="m 230.98845,183.80654 10.806,30.31151 -1.03716,0.37056 -10.80601,-30.31152 1.03717,-0.37055 z m 11.66339,29.42251 -0.4445,3.67256 -2.66728,-2.56117 3.11178,-1.11139 z"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.01058367px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3816"
+         d="m 288.90242,186.51587 10.80629,30.31179 -1.03858,0.37028 -10.80629,-30.31151 1.03858,-0.37056 z m 11.66425,29.42279 -0.44591,3.67256 -2.667,-2.56145 3.11291,-1.11111 z"
+         style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:#ff0000;stroke-width:0.01058367px;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3818"
+         y="202.06062"
+         x="240.39275"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:7.02027798px;line-height:125%;font-family:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           id="tspan3820"
+           y="202.06062"
+           x="240.39275"
+           sodipodi:role="line"><tspan
+             id="tspan3822"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:7.02027798px;font-family:Arial;fill:#000000"
+             dy="0"
+             dx="0">Aurora</tspan></tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text3824"
+         y="177.02055"
+         x="207.78836"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:7.02027798px;line-height:125%;font-family:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           id="tspan3826"
+           y="177.02055"
+           x="207.78836"
+           sodipodi:role="line"><tspan
+             id="tspan3828"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:7.02027798px;font-family:Arial;fill:#000000"
+             dy="0"
+             dx="0">Geomagnetism</tspan></tspan></text>
+      <path
+         inkscape:connector-curvature="0"
+         id="path3830"
+         d="m 187.07693,285.37747 18.45789,-28.70229 98.63865,0 -18.44605,28.70229 z"
+         style="fill:#f8cbad;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <text
+         sodipodi:linespacing="125%"
+         id="text3832"
+         y="274.21893"
+         x="231.48965"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:8.46666622px;line-height:125%;font-family:Arial;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           id="tspan3834"
+           y="274.21893"
+           x="231.48965"
+           sodipodi:role="line"><tspan
+             id="tspan3836"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:8.46666622px;font-family:Arial;fill:#000000"
+             dy="0"
+             dx="0">Ground</tspan></tspan></text>
+    </g>
+  </g>
+</svg>

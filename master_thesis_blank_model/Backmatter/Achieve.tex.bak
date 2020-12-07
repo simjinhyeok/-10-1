@@ -1,0 +1,62 @@
+\chapter*{研究業績}
+\thispagestyle{empty}
+\markboth{研究業績}{}
+\label{achive}
+%\def\thepage{}
+
+\newpage
+%==============================================================================
+%査読有り国内論文投稿
+%==============================================================================
+%\section*{査読有り国内論文投稿}
+%\begin{enumerate}[{[}1{]}]
+%\mbox{}
+%\begin{enumerate}
+%\item ここに書く
+%\end{enumerate}
+
+%==============================================================================
+%査読有り国際会議
+%==============================================================================
+\section*{査読有り国際会議}
+%\begin{enumerate}[{[}1{]}]
+\mbox{}
+\begin{enumerate}
+\item \underline{Soichiro Iwataki}, Hiromitsu Fujii, Alessandro Moro, Atsushi Yamashita, Hajime Asama and Hiroshi Yoshinada, "Visualization of the Surrounding Environment and Operational Part in a 3DCG Model for the Teleoperation of Construction Machines", Proceedings of the 2015 IEEE/SICE International Symposium on System Integration (SII2015), pp~81-87(2015)
+\end{enumerate}
+
+%==============================================================================
+%査読有り国内会議
+%==============================================================================
+\section*{査読有り国内会議}
+%\begin{enumerate}[{[}1{]}]
+\mbox{}
+\begin{enumerate}
+\item \underline{岩滝 宗一郎}, 藤井 浩光, Alessandro Moro, 山下 淳, 淺間 一, 吉灘 裕, "建設機械遠隔操作のための周囲カメラ映像および作業部カメラ映像統合による任意視点映像提示", 第20回ロボティクスシンポジア講演予稿集, pp.~321-327(2015)
+\end{enumerate}
+
+
+%==============================================================================
+%査読無し国内会議
+%==============================================================================
+\section*{査読無し国内会議}
+%\begin{enumerate}[{[}1{]}]
+\mbox{}
+\begin{enumerate}
+\item \underline{岩滝 宗一郎}, 藤井 浩光, Alessandro Moro, 山下 淳, 淺間 一, 吉灘 裕, "建設機械の操作支援のための3DCGモデルへのテクスチャマッピングを用いた周囲環境と作業部映像の同時提示システム", 第15回計測自動制御学会システムインテグレーション部門講演会講演論文集（SI2014）, pp.~2106-2109(2014)
+\end{enumerate}
+%\clearpage
+
+%\section*{学術受賞}
+%\begin{enumerate}[{[}1{]}]
+%\mbox{}
+%\begin{enumerate}
+
+%\end{enumerate}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% mode: katex
+%%% TeX-master: "../thesis"
+%%% End:

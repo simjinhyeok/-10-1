@@ -1,0 +1,676 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%   Define.tex
+%   ==========
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\input{epsf.sty}    %   To input figure
+
+\usepackage{amsmath,amssymb,color,latexSym, mathrsfs}
+%\usepackage{epsfig,tabularx,a4wide,amsmath,amsSymb,color,latexSym,pifont,epsf,txfonts,mathrsfs,yfonts}
+%\usepackage[sf,bf,compact,topmarks,calcwidth,pagestyles]{titlesec}
+%\usepackage{titletoc}
+%\usepackage{bbm}
+%\usepackage[OMLmathrm,OMLmathbf]{isomath}
+\DeclareMathAlphabet{\mathbbmsl}{U}{bbm}{m}{sl}
+%\textheight 23cm \textwidth 16.5cm \topmargin 0pt \hoffset 0pt
+%\oddsidemargin 0pt \voffset 0pt \headheight 0pt \headsep 0pt
+%\marginparwidth 0pt \sloppypar \flushbottom
+%
+\def\LargeFS{8cm}
+\def\OneFS{6cm}
+\def\TwoFS{4cm}
+\def\SmallFS{3cm}
+\def\TinyFS{2cm}
+%
+\def\BE{\begin{eqnarray}}
+\def\NN{\nonumber}
+\def\EE{\end{eqnarray}}
+\def\BM{\begin{bmatrix}}
+\def\EM{\end{bmatrix}}
+\def\BI{\begin{itemize}}
+\def\EI{\end{itemize}}
+\def\BC{\begin{center}}
+\def\EC{\end{center}}
+\def\BNUM{\begin{enumerate}}
+\def\ENUM{\end{enumerate}}
+%
+
+%
+\def\A{\mbox{\boldmath$A$}}
+\def\B{\mbox{\boldmath$B$}}
+\def\C{\mbox{\boldmath$C$}}
+\def\D{\mbox{\boldmath$D$}}
+\def\E{\mbox{\boldmath$E$}}
+\def\F{\mbox{\boldmath$F$}}
+\def\G{\mbox{\boldmath$G$}}
+\def\HH{\mbox{\boldmath$H$}}
+\def\I{\mbox{\boldmath$I$}}
+\def\J{\mbox{\boldmath$J$}}
+\def\K{\mbox{\boldmath$K$}}
+
+\def\LL{{\boldmath$L$}}
+\def\M{\mbox{\boldmath$M$}}
+\def\N{\mbox{\boldmath$N$}}
+\def\OO{\mbox{\boldmath$O$}}
+\def\P{\mbox{\boldmath$P$}}
+\def\Q{\mbox{\boldmath$Q$}}
+\def\R{\mbox{\boldmath$R$}}
+\def\SS{{\boldmath{S}}}
+\def\Ss{{\boldmath{S}}}
+\def\T{\mbox{\boldmath$T$}}
+\def\V{\mbox{\boldmath$V$}}
+\def\W{\mbox{\boldmath$W$}}
+\def\Y{\mbox{\boldmath$Y$}}
+\def\Z{\mbox{\boldmath$Z$}}
+%
+\def\aa{\mbox{\boldmath$a$}}
+\def\bb{\mbox{\boldmath$b$}}
+\def\cc{\mbox{\boldmath$c$}}
+\def\dd{\mbox{\boldmath$d$}}
+\def\ee{\mbox{\boldmath$e$}}
+\def\ff{\mbox{\boldmath$f$}}
+\def\gg{\mbox{\boldmath$g$}}
+\def\hh{\mbox{\boldmath$h$}}
+\def\ii{\mbox{\boldmath$i$}}
+\def\jj{\mbox{\boldmath$j$}}
+\def\kk{\mbox{\boldmath$k$}}
+\def\ll{\mbox{\boldmath$l$}}
+\def\mm{\mbox{\boldmath$m$}}
+\def\nn{\mbox{\boldmath$n$}}
+\def\oo{\mbox{\boldmath$o$}}
+\def\pp{\mbox{\boldmath$p$}}
+\def\qq{\mbox{\boldmath$q$}}
+\def\rr{\mbox{\boldmath$r$}}
+\def\ss{\mbox{\boldmath$s$}}
+\def\tt{\mbox{\boldmath$t$}}
+\def\uu{\mbox{\boldmath$u$}}
+\def\vv{\mbox{\boldmath$v$}}
+\def\ww{\mbox{\boldmath$w$}}
+\def\yy{\mbox{\boldmath$y$}}
+\def\zz{\mbox{\boldmath$z$}}
+%
+%----------------------------------------------------------------
+%       All x States
+%----------------------------------------------------------------
+\def\xAll{\mathbbmsl{x}}
+\def\xAllMinus{\mathbbmsl{x}^{-}}
+\def\xAllPlusPre{\mathbbmsl{x}^{+}_{t-1}}
+\def\xAllPre{\mathbbmsl{x}_{t-1}}
+
+%
+%
+\def\xAllHat{\hat{\mathbbmsl{x}}}
+\def\xAllHatPlus{\hat{\mathbbmsl{x}}^{+}}
+\def\xAllHatPlusPre{\hat{\mathbbmsl{x}}^{+}_{t-1}}
+\def\xAllHatMinus{\hat{\mathbbmsl{x}}^{~-}}
+%
+\def\xAllTilde{\tilde{\mathbbmsl{x}}}
+\def\xAllTildePlus{\tilde{\mathbbmsl{x}}^+}
+\def\xAllTildePlusPre{\tilde{\mathbbmsl{x}}^+_{t-1}}
+\def\xAllTildeMinus{\tilde{\mathbbmsl{x}}^-}
+%
+\def\xAllBar{\bar{\mathbbmsl{x}}}
+\def\xAllBarPlus{\bar{\mathbbmsl{x}}^+}
+\def\xAllBarMinus{\bar{\mathbbmsl{x}}^-}
+
+\def\yAll{\mathbbmsl{y}}
+\def\zAll{\mathbbmsl{z}}
+\def\uAll{\mathbbmsl{u}}
+\def\lAlll{\mathbbmsl{l}}
+\def\MAll{\mathbbmsl{M}}
+\def\sAll{\mathbbmsl{s}}
+%
+%
+%----------------------------------------------------------------
+%       vector x
+%----------------------------------------------------------------
+%
+\def\x{\mbox{\boldmath$x$}}
+\def\xx{\mbox{\boldmath$x$}}
+
+%
+\def\xR{\mbox{\boldmath{$x$}}_r}
+\def\xRPre{\mbox{\boldmath{$x$}}_{r,t-1}}
+\def\xMinusR{\mbox{\boldmath{$x$}}^-_r}
+\def\xPlusR{\mbox{\boldmath{$x$}}^+_r}
+\def\xPlusRPre{\mbox{\boldmath$x$}^+_{r,t-1}}
+%
+\def\RPrexR{(^{r,t-1}\mbox{\boldmath{$x$}}_{r})}
+\def\RPrexHatR{(^{r,t-1}\hat{\mbox{\boldmath{$x$}}}_{r})}
+\def\RPrexBarR{(^{r,t-1}\bar{\mbox{\boldmath{$x$}}}_{r})}
+\def\RPrexTildeR{(^{r,t-1}\tilde{\mbox{\boldmath{$x$}}}_{r})}
+\def\RPreDeltaxTildeR{(^{r,t-1}\widetilde{\delta \mbox{\boldmath{$x$}}}_{r})}
+%
+\def\xHat{\hat{\mbox{\boldmath{$x$}}}}
+\def\xHatR{\hat{\mbox{\boldmath{$x$}}}_r}
+\def\xHatRPre{\hat{\mbox{\boldmath{$x$}}}_{r,t-1}}
+\def\xHatPlusR{\hat{\mbox{\boldmath$x$}}^+_{r}}
+\def\xHatPlusRZero{\hat{\mbox{\boldmath$x$}}^+_{r,0}}
+\def\xHatPlusRPre{\hat{\mbox{\boldmath$x$}}^+_{r,t-1}}
+\def\xHatMinusR{\hat{\mbox{\boldmath$x$}}^-_{r}}
+%
+\def\xTilde{\tilde{\mbox{\boldmath{$x$}}}}
+\def\xTildeR{\tilde{\mbox{\boldmath{$x$}}}_r}
+\def\xTildeRPre{\tilde{\mbox{\boldmath{$x$}}}_{r,t-1}}
+\def\xTildePlusR{\tilde{\mbox{\boldmath$x$}}^+_r}
+\def\xTildePlusRPre{\tilde{\mbox{\boldmath$x$}}^+_{r,t-1}}
+\def\xTildeMinusR{\tilde{\mbox{\boldmath$x$}}^-_{r}}
+%
+\def\xBar{\bar{\mbox{\boldmath{$x$}}}}
+\def\xBarR{\bar{\mbox{\boldmath{$x$}}}_r}
+\def\xBarPlusR{\bar{\mbox{\boldmath$x$}}^+_r}
+\def\xBarPlusRPre{\bar{\mbox{\boldmath$x$}}^+_{r,t-1}}
+\def\xBarMinusR{\bar{\mbox{\boldmath$x$}}^+_{r}}
+%
+\def\RxHatI{^r \hat{\mbox{\boldmath{$x$}}}_{i}}
+\def\RxHatMinusW{^r \hat{\mbox{\boldmath{$x$}}}^-_{w}}
+\def\RPrexHatMinusW{(^{r,t-1}\hat{\mbox{\boldmath{$x$}}}^{-}_{w})}
+%\RPrexHatMinusW
+%%----------------------------------------------------------------
+%%       vector X
+%%----------------------------------------------------------------
+%%
+\def\X{\mbox{\boldmath$X$}}
+\def\XBar{\overline{\mbox{\boldmath{$X$}}}}
+%
+%
+%----------------------------------------------------------------
+%       scalar x: robot
+%----------------------------------------------------------------
+%
+\def\Sx{x}
+\def\SxR{x_r}
+\def\SxPlusRPre{x^+_{r,t-1}}
+%
+\def\RPreSxR{(^{r,t-1} x_{r})}
+\def\RPreDeltaSxR{(^{r,t-1} \delta x_{r})}
+\def\RPreSxHatR{(^{r,t-1} \hat{x}_{r})}
+\def\SxHatR{\hat{x}_r}
+\def\SxHatRPre{\hat{x}_{r,t-1}}
+\def\SxHatPlusR{\hat{x}^+_r}
+\def\SxHatPlusRPre{\hat{x}^+_{r,t-1}}
+\def\SxHatMinusR{\hat{x}^-_r}
+\def\SxHatMinusI{\hat{x}^-_i}
+\def\SxBar{\bar{x}}
+%
+\def\SxMinusR{x^-_{r}}
+%----------------------------------------------------------------
+%       vector y
+%----------------------------------------------------------------
+%
+\def\y{\mbox{\boldmath$y$}}
+%
+%----------------------------------------------------------------
+%       scalar y: robot
+%----------------------------------------------------------------
+%
+\def\Sy{y}
+\def\SyR{y_r}
+\def\SyPlusRPre{y^+_{r,t-1}}
+%
+\def\SyRPre{y_{r,t-1}}
+\def\RPreSyR{(^{r,t-1} y_{r})}
+\def\RPreSyHatR{(^{r,t-1} \hat{y}_{r})}
+\def\RPreDeltaSyR{(^{r,t-1} \delta y_{r})}
+\def\SyHatR{\hat{y}_r}
+\def\SyHatRPre{\hat{y}_{r,t-1}}
+\def\SyHatRPre{\hat{y}_{r,t-1}}
+\def\SyHatPlusR{\hat{y}^+_r}
+\def\SyHatPlusRPre{\hat{y}^+_{r,t-1}}
+\def\SyHatMinusR{\hat{y}^-_r}
+%
+\def\SyMinusR{y^-_{r}}
+%
+%----------------------------------------------------------------
+%       vector p
+%----------------------------------------------------------------
+%
+\def\p{\mbox{\boldmath$p$}}
+\def\pR{\mbox{\boldmath{$p$}}_r}
+%
+\def\RPrepR{(^{r,t-1}\mbox{\boldmath{$p$}}_{r})}
+\def\RPreDeltapR{(^{r,t-1} \delta \mbox{\boldmath{$p$}}_{r})}
+\def\RPrepHatR{(^{r,t-1} \hat{\mbox{\boldmath{$p$}}}_{r})}
+\def\RpHatI{^{r} \hat{\mbox{\boldmath{$p$}}}_{i}}
+\def\RpHatMinusI{~ ^r \hat{\mbox{\boldmath$p$}^-}_{i}}
+%
+\def\pPlusR{\mbox{\boldmath${p}$}^+_r}
+\def\pPlusRPre{\mbox{\boldmath${p}$}^+_{r,t-1}}
+\def\pMinusR{\mbox{\boldmath${p}$}^-_{r}}
+%
+\def\pHat{\hat{\mbox{\boldmath{$p$}}}}
+\def\pHatR{\hat{\mbox{\boldmath{$p$}}}_r}
+\def\pHatRPre{\hat{\mbox{\boldmath{$p$}}}_{r,t-1}}
+\def\pHatPlusR{\hat{\mbox{\boldmath$p$}}^+_r}
+\def\pHatPlusRPre{\hat{\mbox{\boldmath$p$}}^+_{r,t-1}}
+\def\pHatMinusR{\hat{\mbox{\boldmath$p$}}^-_{r}}
+%
+%
+%----------------------------------------------------------------
+%       scalar psi (heading angle of robot)
+%----------------------------------------------------------------
+%
+
+\def\yawPlusR{\phi^+_r}
+\def\yawPlusRPre{\phi^+_{r,t-1}}
+\def\yawMinusR{\phi^-_r}
+%
+\def\yawR{\phi_r}
+\def\yawRPre{\phi_{r,t-1}}
+\def\yawHat{\hat{\phi}}
+\def\yawHatR{\hat{\phi}_r}
+\def\yawHatRPre{\hat{\phi}_{r,t-1}}
+\def\yawHatPlusR{\hat{\phi}^+_r}
+\def\yawHatPlusRPre{\hat{\phi}^+_{r,t-1}}
+\def\yawHatMinusR{\hat{\phi}^-_r}
+%
+\def\RPreyawR{(^{r,t-1} \phi_{r})}
+\def\RPreDeltayawR{(^{r,t-1} \delta \phi_{r})}
+\def\RPreyawHatR{(^{r,t-1} \hat{\phi}_{r})}
+%
+\def\yawMinusR{\phi^-_{r}}
+
+
+%
+%
+%----------------------------------------------------------------
+%       Feature (point, line, plane)
+%----------------------------------------------------------------
+%
+%
+%
+%
+%----------------------------------------------------------------
+%       Landmark
+%----------------------------------------------------------------
+%
+\def\l{\mbox{\boldmath$l$}}
+%
+\def\lI{\mbox{\boldmath$l$}_i}
+\def\lMinusOne{\mbox{\boldmath$l$}^-_{1}}
+\def\lMinusAll{\mbox{\boldmath$l$}^-_{(1:n)}}
+\def\lAll{\mbox{\boldmath$l$}_{(1:n)}}
+\def\lPlusAllPre{\mbox{\boldmath$l$}^+_{(1:n),t-1}}
+\def\lPlusOnePre{\mbox{\boldmath$l$}^+_{1,t-1}}
+%
+\def\lHat{\hat{\mbox{\boldmath$l$}}}
+\def\lHatPlus{\hat{\mbox{\boldmath$l$}}^+}
+\def\lHatPlusOne{\hat{\mbox{\boldmath$l$}}^+_{1}}
+\def\lHatPlusOneZero{\hat{\mbox{\boldmath$l$}}^+_{1,0}}
+\def\lHatPlusN{\hat{\mbox{\boldmath$l$}}^+_{n}}
+\def\lHatMinus{\hat{\mbox{\boldmath$l$}}^-}
+\def\lHatMinusOne{\hat{\mbox{\boldmath$l$}}^-_{1}}
+\def\lHatMinusN{\hat{\mbox{\boldmath$l$}}^-_{n}}
+\def\lHatI{\hat{\mbox{\boldmath$l$}}_i}
+\def\lHatOne{\hat{\mbox{\boldmath$l$}}_{i,1}}
+\def\lHatTwo{\hat{\mbox{\boldmath$l$}}_{i,2}}
+\def\lHatN{\hat{\mbox{\boldmath$l$}}_{i,n}}
+\def\lHatAll{\hat{\mbox{\boldmath$l$}}_{(1:n)}}
+\def\lHatINew{\hat{\mbox{\boldmath$l$}}_{n+1}}
+%
+\def\lHatMinusI{\hat{\mbox{\boldmath$l$}}^{~-}_{i}}
+\def\lHatMinusJ{\hat{\mbox{\boldmath$l$}}^{~-}_{j}}
+\def\lHatPlusI{\hat{\mbox{\boldmath$l$}}^+_{i}}
+\def\lHatMinusAll{\hat{\mbox{\boldmath$l$}}^{~-}_{(1:n)}}
+\def\lHatPlusAll{\hat{\mbox{\boldmath$l$}}^+_{(1:n)}}
+\def\lHatPlusAllPre{\hat{\mbox{\boldmath$l~$}}^+_{(1:n),t-1}}
+%
+\def\lPlusAll{\mbox{\boldmath$l$}^+_{(1:n)}}
+\def\lBarPlusAllPre{\bar{\mbox{\boldmath$l$}}^+_{(1:n),t-1}}
+%
+\def\lTildeMinusI{\tilde{\mbox{\boldmath$l$}}^{~-}_{i}}
+\def\lTildePlusI{\tilde{\mbox{\boldmath$l$}}^+_{i}}
+\def\lTildeMinusAll{\tilde{\mbox{\boldmath$l$}}^{~-}_{(1:n)}}
+\def\lTildePlusAll{\tilde{\mbox{\boldmath$l$}}^+_{(1:n)}}
+\def\lTildePlusAllPre{\tilde{\mbox{\boldmath$l$}}^+_{(1:n),t-1}}
+\def\lTildePlusOnePre{\tilde{\mbox{\boldmath$l$}}^+_{1,t-1}}
+%
+%
+\def\lHatNew{\hat{\mbox{\boldmath$L$}}_{a}}
+\def\lNew{\mbox{\boldmath$L$}_{a}}
+\def\lTildeNew{\tilde{\mbox{\boldmath$l$}}_{a}}
+%l
+%
+\def\lTilde{\tilde{\mbox{\boldmath$L$}}}
+%
+% \def\xAll{\mathbbmsl{x}}
+\def\lV{\mbox{\boldmath$L$}_v}
+\def\lDAll{\mathbbmsl{L}_d}
+\def\lDOne{\mbox{\boldmath$L$}_{d1}}
+\def\lDTwo{\mbox{\boldmath$L$}_{d2}}
+\def\lDI{\mbox{\boldmath$L$}_{di}}
+\def\lDN{\mbox{\boldmath$L$}_{dn}}
+%
+\def\lMinus{{\mbox{\boldmath$L$}}^{-}}
+\def\lMinusI{{\mbox{\boldmath$L$}}^{~-}_{i}}
+\def\lMinusV{{\mbox{\boldmath$L$}}^{~-}_{v}}
+\def\lMinusDI{{\mbox{\boldmath$L$}}^{~-}_{di}}
+\def\lMinusD{{\mbox{\boldmath$L$}}^{~-}_{d}}
+\def\lMinusDAll{{\mbox{\boldmath$L$}}^{~-}_{d(1:n)}}
+%
+\def\lVA{\mbox{\boldmath$L$}_{v,a}}
+\def\lDA{\mbox{\boldmath$L$}_{d,a}}
+%
+%----------------------------------------------------------------
+%       scalar /vector x: landmark
+%----------------------------------------------------------------
+%
+\def\SxI{x_i}
+\def\SxHatI{\hat{x}_{i}}
+\def\SxHatOne{\hat{x}_{i,1}}
+\def\SxHatTwo{\hat{x}_{i,2}}
+\def\SxHatPlusI{\hat{x}^+_{i}}
+\def\SxHatMinusI{\hat{x}^-_{i}}
+\def\xHatPlusAll{\hat{\mbox{\boldmath$x$}}^+_{(1:n)}}
+\def\xHatMinusAll{\hat{\mbox{\boldmath$x$}}^-_{(1:n)}}
+%
+\def\SxV{x_v}
+\def\SxMinusV{x^-_v}
+\def\SxDOne{x_{d1}}
+\def\SxDTwo{x_{d2}}
+\def\SxDI{x_{di}}
+\def\SxMinusDI{x^-_{di}}
+\def\SxMinusD{x^-_{d}}
+\def\SxDN{x_{dn}}
+%
+\def\SxR{x_r}
+\def\SxRPre{x_{r,t-1}}
+\def\SxHatR{\hat{x}_{r}}
+%
+%----------------------------------------------------------------
+%       scalar /vector y: landmark
+%----------------------------------------------------------------
+%
+\def\SyI{y_i}
+\def\SyHatI{\hat{y}_{i}}
+\def\SyHatOne{\hat{y}_{i,1}}
+\def\SyHatTwo{\hat{y}_{i,2}}
+\def\SyHatPlusI{\hat{y}^+_{i}}
+\def\SyHatMinusI{\hat{y}^-_{i}}
+\def\yHatPlusAll{\hat{\mbox{\boldmath$y$}}^+_{(1:n)}}
+\def\yHatMinusAll{\hat{\mbox{\boldmath$y$}}^-_{(1:n)}}
+%
+\def\SyV{y_v}
+\def\SyMinusV{y^-_v}
+\def\SyDOne{y_{d1}}
+\def\SyDTwo{y_{d2}}
+\def\SyDI{y_{di}}
+\def\SyMinusDI{y^-_{di}}
+\def\SyMinusD{y^-_{d}}
+\def\SyDN{y_{dn}}
+%
+%
+%----------------------------------------------------------------
+%       scalar /vector s: landmark
+%----------------------------------------------------------------
+%
+\def\SsDOne{s_{d1}}
+\def\SsDTwo{s_{d2}}
+\def\SsDI{s_{di}}
+\def\SsMinusDI{s^-_{di}}
+\def\SsDN{s_{dn}}
+\def\SsHatDI{\hat{s}_{di}}
+\def\SsD{s_d}
+%
+%----------------------------------------------------------------
+%       vector z
+%----------------------------------------------------------------
+%
+\def\z{\mbox{\boldmath$z$}}
+\def\zHat{\hat{\mbox{\boldmath$z$}}}
+\def\zHatI{\hat{\mbox{\boldmath$z$}}_{i}}
+\def\RzHatI{^r \hat{\mbox{\boldmath$z$}}_{i}}
+\def\RzHatOne{^r \hat{\mbox{\boldmath$z$}}_{1}}
+\def\RzM{^r \mbox{\boldmath$z$}_{m}}
+\def\RzHatM{^r \hat{\mbox{\boldmath$z$}}_{m}}
+\def\RzI{^r \mbox{\boldmath$z$}_{i}}
+%
+\def\RsrM{^r r_m}
+\def\RsbM{^r b_m}
+\def\RsrHatM{^r \hat{r}_m}
+\def\RsbHatM{^r \hat{b}_m}
+%
+\def\RsrHatI{^r \hat{r}_i}
+\def\RsbHatI{^r \hat{b}_i}
+\def\RsrHatOne{^r \hat{r}_1}
+\def\RsbHatOne{^r \hat{b}_1}
+%
+%
+\def\RzNew{^r \mbox{\boldmath$z$}_a}
+\def\RzTildeNew{^r \tilde{\mbox{\boldmath$z$}}_a}
+\def\RzHatNew{^r \hat{\mbox{\boldmath$z$}}_a}
+\def\RzBarNew{^r \bar{\mbox{\boldmath$z$}}_a}
+\def\RzM{^r \mbox{\boldmath$z$}_m}
+\def\RzMOne{^r \mbox{\boldmath$z$}_{m,1}}
+\def\RzMTwo{^r \mbox{\boldmath$z$}_{m,2}}
+\def\RzTildeI{^{r} \tilde{\mbox{\boldmath$z$}}_{i}}
+\def\RzTildeOne{^{r} \tilde{\mbox{\boldmath$z$}}_{1}}
+\def\RzTildeAll{^{r} \tilde{\mbox{\boldmath$z$}}_{(1:n)}}
+%
+\def\zV{{\mbox{\boldmath$z$}}_{v}}
+\def\zD{{\mbox{\boldmath$z$}}_{d}}
+\def\zHatV{\hat{\mbox{$z$}}_{v}}
+\def\zHatDI{\hat{\mbox{$z$}}_{di}}
+\def\zHatD{\hat{\mbox{$z$}}_{d}}
+
+\def\zHatKthC{\hat{\mbox{\boldmath$z$}}_{c}^{(k)}}
+\def\zHatKthR{\hat{\mbox{\boldmath$z$}}_{r}^{(k)}}
+
+\def\zKthC{{\mbox{\boldmath$z$}}_{c}^{(k)}}
+\def\zKthR{{\mbox{\boldmath$z$}}_{r}^{(k)}}
+
+%
+%----------------------------------------------------------------
+%       scalar rho (landmark range)
+%----------------------------------------------------------------
+%
+\def\RSrhoM{^{r} \rho_m}
+\def\RSrhoHatNew{^{r} \hat{\rho}_a}
+\def\RSrhoHatI{^{r} \hat{\rho}_i}
+\def\SrhoI{\rho_i}
+\def\SrhoOne{\rho_i}
+\def\SrhoTwo{\rho_i}
+\def\SrhoHatI{\hat{\rho}_i}
+%
+\def\SrhoDI{\rho_{di}}
+\def\SrhoHatDI{\hat{\rho}_{di}}
+\def\SrhoD{\rho_d}
+
+
+
+\def\SuHatDI{\hat{u}_{di}}
+
+
+%
+%----------------------------------------------------------------
+%       scalar alpha (landmark bearing)
+%----------------------------------------------------------------
+%
+%
+\def\RSalphaM{^{r} \alpha_m}
+\def\RSalphaHatNew{^{r} \hat{\alpha}_a}
+\def\RSalphaHatI{^{r} \hat{\alpha}_i}
+\def\SalphaI{\alpha_i}
+\def\SalphaOne{\alpha_i}
+\def\SalphaTwo{\alpha_i}
+\def\SalphaHatI{\hat{\alpha}_i}
+\def\SalphaHatDI{\hat{\alpha}_{di}}
+\def\SalphaD{\alpha_d}
+%
+%----------------------------------------------------------------
+%       Prediction Jacobian All: F & G
+%----------------------------------------------------------------
+\def\FAll{\mathbbmsl{F}}
+\def\GAll{\mathbbmsl{G}}
+%----------------------------------------------------------------
+%       Measurement Jacobian All: H = [H_r 0 H_L 0]
+%----------------------------------------------------------------
+%
+\def\HAll{\mathbbmsl{H}}
+%
+%----------------------------------------------------------------
+%       Augmentation Jacobian: A
+%----------------------------------------------------------------
+%
+\def\AR{\mbox{\boldmath$A$}_{r}}
+\def\ANew{\mbox{\boldmath$A$}_{a}}
+%
+%----------------------------------------------------------------
+%       Whole Covariance P
+%----------------------------------------------------------------
+%
+\def\P{\mbox{\boldmath$P$}}
+%
+\def\PPlus{\mbox{\boldmath${P}$}^+}
+\def\PPlusPre{\mbox{\boldmath${P}$}^+_{t-1}}
+\def\PPre{\mbox{\boldmath${P}$}_{t-1}}
+\def\PMinus{\mbox{\boldmath${P}$}^-}
+%
+%
+%----------------------------------------------------------------
+%       Covariance Robot & Landmark: PSI (k)
+%----------------------------------------------------------------
+%
+\def\CPsi{\mbox{\boldmath$\varPsi$}}
+\def\CPsiAll{\mbox{\boldmath$\Psi$}}
+%
+\def\CPsiPlusAll{\mbox{\boldmath$\varPsi$}^{+}_{(1:n)}}
+\def\CPsiPlusOne{\mbox{\boldmath$\varPsi$}^{+}_{1}}
+\def\CPsiPlusN{\mbox{\boldmath$\varPsi$}^{+}_{n}}
+%
+\def\CPsiMinusAll{\mbox{\boldmath$\varPsi$}^{-}_{(1:n)}}
+\def\CPsiMinusOne{\mbox{\boldmath$\varPsi$}^{-}_{1}}
+\def\CPsiMinusN{\mbox{\boldmath$\varPsi$}^{-}_{n}}
+%
+\def\CPsiRV{\mbox{\boldmath$\varPsi$}_{r,v}}
+\def\CPsiRDAll{\mbox{\boldmath$\varPsi$}_{r,d}}
+%
+%----------------------------------------------------------------
+%       Covariance Landmark: Theta (i)
+%----------------------------------------------------------------
+%
+\def\CTheta{\mbox{\boldmath$\varTheta$}}
+\def\CThetaAll{\mbox{\boldmath$\varTheta$}_{(1:n)}}
+\def\CThetaPlusAll{\mbox{\boldmath$\varTheta$}^+_{(1:n)}}
+%
+\def\CThetaPlus{\mbox{\boldmath$\varTheta$}^+}
+\def\CThetaPlusOne{\mbox{\boldmath$\varTheta$}^+_{1}}
+\def\CThetaPlusZero{\mbox{\boldmath$\varTheta$}^+_{0}}
+\def\CThetaPlusOneN{\mbox{\boldmath$\varTheta$}^+_{1,n}}
+\def\CThetaPlusNOne{\mbox{\boldmath$\varTheta$}^+_{n,1}}
+\def\CThetaPlusN{\mbox{\boldmath$\varTheta$}^+_{n}}
+%
+\def\CThetaMinus{\mbox{\boldmath$\varTheta$}^-}
+\def\CThetaMinusOne{\mbox{\boldmath$\varTheta$}^+_{1}}
+\def\CThetaMinusOneN{\mbox{\boldmath$\varTheta$}^+_{1,n}}
+\def\CThetaMinusNOne{\mbox{\boldmath$\varTheta$}^+_{n,1}}
+\def\CThetaMinusN{\mbox{\boldmath$\varTheta$}^+_{n}}
+%
+%
+\def\CThetaMinusI{\mbox{\boldmath$\varTheta$}^-_{i}}
+\def\CThetaMinusAll{\mbox{\boldmath$\varTheta$}^-_{(1:n)}}
+%
+\def\CThetaV{\mbox{\boldmath$\varTheta$}_{v}}
+\def\CThetaDAll{\mbox{\boldmath$\varTheta$}_{d}}
+\def\CThetaVDAll{\mbox{\boldmath$\varTheta$}_{v,d}}
+%
+%----------------------------------------------------------------
+%       Covariance Robot: Phi (R)
+%----------------------------------------------------------------
+%
+\def\CPhi{\mbox{\boldmath$\varPhi$}}
+\def\CPhiPlus{\mbox{\boldmath$\varPhi$}^{+}}
+\def\CPhiPlusZero{\mbox{\boldmath$\varPhi$}^{+}_0}
+\def\CPhiMinus{\mbox{\boldmath$\varPhi$}^{-}}
+%
+\def\CPhiR{\mbox{\boldmath$\varPhi$}_{r}}
+
+\def\COmega{\mbox{\boldmath$\varOmega$}}
+
+%
+%
+%----------------------------------------------------------------
+%       Kalman Gain: K
+%----------------------------------------------------------------
+%
+%\def\CPhi{\mbox{\boldmath$K$}^-_{k}}
+%
+%----------------------------------------------------------------
+%       Yaw, Pitch, Roll
+%----------------------------------------------------------------
+%
+\def\yaw{\phi}
+\def\pitch{\theta}
+\def\roll{\psi}
+%
+%----------------------------------------------------------------
+%       Numbers
+%----------------------------------------------------------------
+%
+\def\0{\mathbf{0}}
+\def\1{\mathbf{1}}
+\def\2{\mathbf{2}}
+\def\3{\mathbf{3}}
+\def\4{\mathbf{4}}
+\def\5{\mathbf{5}}
+\def\6{\mathbf{6}}
+\def\7{\mathbf{7}}
+\def\8{\mathbf{8}}
+\def\9{\mathbf{9}}
+%
+%----------------------------------------------------------------
+%       ETC
+%----------------------------------------------------------------
+%
+\def\iTh{$i^{th}~$}
+\def\jTh{$j^{th}~$}
+\def\kTh{$k^{th}~$}
+\def\mTh{$k^{th}~$}
+\def\half{\frac{1}{2}}
+%
+%----------------------------------------------------------------
+%       Control Input
+%----------------------------------------------------------------
+\def\u{\mbox{\boldmath$u$}}
+\def\uTildePre{\tilde{\mbox{\boldmath$u$}}_{t-1}}
+\def\uHatPre{\hat{\mbox{\boldmath$u$}}_{t-1}}
+\def\RPreDeltaxR{(^{r,t-1} \delta \mbox{\boldmath$x$}_{r})}
+%
+\def\uPre{\mbox{\boldmath$u$}_{t-1}}
+\def\DeltauPre{\delta \mbox{\boldmath$u$}_{t-1}}
+\def\QED{\hfill\mbox{\ding{110}}\par\endtrivlist\unskip}
+
+%
+%----------------------------------------------------------------
+%       For Thesis
+%----------------------------------------------------------------
+\def\gAll{\mathbbmsl{g}}
+\def\Cam{\mbox{\boldmath$P$}}
+\def\CamAll{\mathbbmsl{w}}
+\def\Img{\mbox{\boldmath$I$}}
+\def\ImgRCam{\mbox{\boldmath$I$}_{R(\Cam)}}
+\def\ImgRCamk{\mbox{\boldmath$I$}_{R(\Cam^{(k)})}}
+\def\ImgBCam{\mbox{\boldmath$I$}_{B(\Cam)}}
+\def\ImgBCamk{\mbox{\boldmath$I$}_{B(\Cam^{(k)})}}
+\def\ImgBCamkStar{\mbox{\boldmath$I$}_{B(\Cam^{(k^*)})}}
+
+\def\nodeOct{\nn_\mathrm{occ}}
+\def\nodeOctCheck{\check{\nn}_\mathrm{occ}}
+%\def\MapOct{\mathbbmsl{M}}
+\def\MapOct{\mathcal{M}}
+\def\MapGrid{\mathbbmsl{M}_\mathrm{grid}}
+\def\pAll{\mathbbmsl{p}}
+\def\uAll{\mathbbmsl{u}}
+\def\aAll{\mathbbmsl{a}}
+\def\lAll{\mathbbmsl{l}}
+%\def\SAll{\mathbbmsl{S}}
+\def\SAll{\mathcal{S}}
+\def\normal{\hat{\nn}}
+\def\norx{\hat{n}_x}
+\def\nory{\hat{n}_y}
+\def\norz{\hat{n}_z}
+\def\Bel{\mbox{\boldmath $Bel$}}

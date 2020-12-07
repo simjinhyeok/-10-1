@@ -1,0 +1,137 @@
+\documentclass[12pt, uplatex]{jsbook}
+
+\input{define}
+
+\usepackage{pethesis}
+\usepackage{minitoc}
+\usepackage{hhline} % 表で横の2重線を描ける
+\usepackage{slashbox}
+\usepackage{booktabs}
+\usepackage{url}
+\renewcommand{\figurename}{Fig. }
+\renewcommand{\tablename}{Table }
+\newcommand{\argmax}{\mathop{\rm arg~max}\limits}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+
+\usepackage{color}
+\usepackage{latexsym}
+\usepackage{ascmac}
+%\usepackage[labelsep=quad]{caption}
+\usepackage{amsmath}
+%\usepackage[subrefformat=parens]{subcaption} %橘高追加
+%\captionsetup{compatibility=false} %橘高追加
+%\usepackage{otf} %橘高追加
+
+%\usepackage{otf}
+%\usepackage{utf}
+%\usepackage{bm}
+%\usepackage{subfigure}
+%\usepackage{cite}
+%\usepackage{comment}
+%\usepackage{ulem}
+%\renewcommand\UrlFont{\rmfamily}
+%\usepackage{algorithm}
+%\usepackage{algorithmic}
+%\usepackage{subfig}
+%\usepackage{xbmkanji}
+
+
+%%%図を表示するか、四角枠だけにするどうか
+\usepackage[dvipdfmx]{graphicx}%図ON
+%\usepackage[draft]{graphicx}%図OFF
+
+%\renewcommand{\refname}{}
+
+%\setlength{\subfigtopskip}{-10pt}
+%\setlength{\subfigcapskip}{-10pt}
+%\setlength{\subfigbottomskip}{-10pt}
+%\setlength{\abovecaptionskip}{-10pt}
+%\setlength{\belowcaptionskip}{-10pt}
+%\setcounter{secnumdepth}{4}
+%\setcounter{tocdepth}{3}%
+
+%\newif\iffigure
+%\figurefalse
+%\figuretrue
+
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%                                          論文の表紙の項目
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+\thesistype{平成30年度 修士論文}
+\title{理学療法士のリハビリテーション技能の解析と\\片麻痺患者の起立動作の支援機器への応用
+}
+\etitle{Clarification of Physical Therapist's Skill and Development of\\Assist Device for Stroke Patient's Sit-to-stand Motion}
+\affiliation{東京大学大学院 工学系研究科 精密工学専攻}
+\supervisor{山下 淳 准教授}
+\studentid{37--176255}
+\author{湖上　碩樹}
+
+\begin{document}
+\dominitoc
+%表紙
+\maketitle
+%概要
+%\thispagestyle{empty}
+%\thispagestyle{empty}
+%\input{./Frontmatter/abst}
+
+\frontmatter%目次
+\tableofcontents%図目次
+\listoffigures%表目次
+\listoftables
+%
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%                                                 以下本文
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+{\mainmatter
+\setcounter{page}{1}
+\input{./Chap1/chap1}
+\input{./Chap2/chap2}
+\input{./Chap3/chap3}
+\input{./Chap4/chap4}
+\input{./Chap5/chap5}
+\input{./Chap6/chap6}
+}
+
+%
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%                                                    謝辞
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+\addcontentsline{toc}{chapter}{謝辞}
+\input{./Backmatter/Thank}
+\cleardoublepage
+
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%                                                 参考文献
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%\bibliographystyle{junsrt}
+%\bibliography{ref}
+
+\addcontentsline{toc}{chapter}{参考文献}
+\input{./Backmatter/Ref}
+\cleardoublepage
+
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%                                                 研究業績
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+\addcontentsline{toc}{chapter}{研究業績}
+\input{./Backmatter/Achieve}
+\cleardoublepage
+
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%                                                    付録
+% ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ %
+%\appendix
+%\setcounter{chapter}{1}
+
+%\newcommand{\furoku}[1]{\chapter{\thechapter\hspace{1.6zw}#1}}
+%\newcommand{\furoku}[1]{\chapter{\thechapter \\ #1}}
+
+%\input{./Appendix/appendix_A}
+
+%\input{./Appendix/appendix_B}
+%\cleardoublepage
+
+%
+% 論文の最後
+\end{document}

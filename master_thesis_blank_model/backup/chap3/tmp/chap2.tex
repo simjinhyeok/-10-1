@@ -1,0 +1,760 @@
+\chapter{魚眼カメラを用いたオーロラ計測のための画像処理}
+\label{chap:Caribration}
+\minitoc
+
+\thispagestyle{empty}
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{はじめに}
+本章では，魚眼カメラで取得した画像によってオーロラ計測を行うために本研究で用いた画像処理について述べる．
+
+魚眼カメラで撮影した画像は魚眼レンズの光学モデルによって変化するため，使用する魚眼レンズのモデルに基づいて画像処理を行う．
+また，本研究ではステレオ計測を行うため2台のカメラに共通の座標系を設け，取得した画像をその座標系へ変換する．
+画像を変換する際に必要なカメラの内部パラメータや外部パラメータを推定する．
+最後に，特徴点を探索するために，推定したパラメータを用いて画像から魚眼レンズによる歪みを取り除き，画像からオーロラ領域を抽出する．
+
+まず\ref{sec:fish-eye_camera}節で本研究で使用する魚眼レンズのモデルとその特性について述べる．
+
+次に\ref{sec:rectified_coordinate}節では，本研究で用いる座標系について述べる．
+
+\ref{sec:calibration}節で本研究における画像処理に必要なパラメータの推定方法について述べる．
+
+%その座標系への画像の変換方法について述べる．変換には\ref{sec:calibration}節で推定したパラメータを用いる．
+
+最後に\ref{sec:undistorted}節では魚眼カメラで撮影された画像から歪みを取り除く補正面展開の手法について述べる．
+%最後に\ref{sec:backsubtraction}節では，特徴点検出のために画像中からオーロラ領域を抽出する背景差分について述べる．
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{魚眼レンズのモデル}
+\label{sec:fish-eye_camera}
+魚眼レンズは，一般的に180°以上の画角を持ち，これをカメラに取り付けることで広視野角での撮影を可能にするレンズである．
+
+魚眼レンズは，レンズを半球面と仮定した場合に，半球上の図形をそのまま平面に射影する正射影方式や，球面上の距離が正しく投影され画角による解像度の違いのない等距離射影方式，像の面積が立体角に比例する等立体角射影方式などの射影方式に分類される．本研究では等立体角射影方式の魚眼レンズを使用する．
+また，画面の水平垂直対角線両方より画像半径が小さく画像が円形として得られるレンズを全周魚眼レンズ，画像半径が画面対角線以上で画像が矩形として得られるレンズを対角魚眼レンズと分類される．本研究では全周魚眼レンズを使用する．
+
+等立体角射影方式の魚眼レンズでは，画像中心($C_u$, $C_v$)からのピクセル距離を$r$ [pixel]，カメラ光軸から入射光への角度を$\theta$ [$^{\circ}$]，魚眼レンズの歪みパラメータを$k$ [pixel]とおくと，
+次式の関係が成り立つ．
+
+
+\begin{equation}
+r=2k\sin{\frac{\theta}{2}}
+\label{eq:model}
+\end{equation}
+
+等立体角射影方式の全周魚眼レンズの模式図を図\ref{fig:tourittai}に示す．
+図\ref{fig:tourittai}中のx軸，z軸はカメラ座標系の座標軸，U軸，V軸は得られる画像の座標軸を表している．
+図\ref{fig:nyuusyakou}は入射光がレンズで屈折し撮像素子へ投影される様子を表している．図\ref{fig:pixel_kankei}が撮影された画像上での画像中心と，注目点$(u, v)$，ピクセル距離$r$の関係を表している．図\ref{fig:nyuusyakou_side}は入射光が屈折し撮影素子へ投影される様子を上から見た図である．$\theta=90^{\circ}$を式（\ref{eq:model}）へ代入すると，$r=\sqrt{2}k$となるため画像半径は$\sqrt{2}k$となる．
+
+\begin{figure}[htb]
+  \centering
+  \subfigure[入射光の投影の様子]{
+    \includegraphics[width=5cm]{./chap2/tourittai_a.eps}
+  \label{fig:nyuusyakou}}\\
+  \subfigure[注目点$(u, v)$とピクセル距離$r$の関係]{
+    \includegraphics[width=5cm]{./chap2/tourittai_b.eps}
+  \label{fig:pixel_kankei}}
+%\vspace{10mm}
+  \subfigure[入射光の投影を横から見た図]{
+
+    \includegraphics[width=6cm]{./chap2/tourittai_c.eps}
+  \label{fig:nyuusyakou_side}}
+  \caption{等立体角射影方式}
+  \label{fig:tourittai}
+\end{figure}
+
+
+%\begin{figure}[hbp]
+%\begin{center}
+%\includegraphics[width=13cm]{./chap2/tourittai.eps}
+%\caption{等立体射影方式}
+%\label{fig:tourittai}
+%\end{center}
+%\end{figure}
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{リクティファイド座標系}
+\label{sec:rectified_coordinate}
+%(パラメータ取得の節でリクティファイド座標系への説明がかなり必要になりそうなのでこの節を先に持って来ました)\\
+
+本研究では，地上の異なる2地点に魚眼カメラを設置してオーロラを撮影する．
+設置された2台の魚眼カメラは向きや姿勢が異なるため，得られた画像の座標系は各カメラで異なる．
+得られた画像対を用いて平行ステレオ計測を行うためには，2台のカメラに共通な座標系を設け，姿勢を平行に変換する必要がある．この座標系をリクティファイド座標系と呼ぶ．
+
+各カメラの姿勢とリクティファイド座標系の関係を図\ref{fig:shisei1}に示す．
+設置されたカメラAの光軸を$Z_A$で表し，$X_A$軸，$Y_A$軸は得られる画像の座標軸に平行な軸を表している．カメラBに関しても同様に表している．
+黒い矢印で表した軸がリクティファイド座標系の各軸を表している．
+各カメラの座標軸をリクティファイド座標系の軸と一致するように変換することで，魚眼カメラから得られた画像によってステレオ計測を行える．
+
+リクティファイド座標系へのカメラ姿勢の変換について図\ref{fig:shisei2}に示す．
+図\ref{fig:shisei2}において赤い四角は設置されたカメラの姿勢，赤い矢印はカメラの光軸を表している．
+一方，青い四角は各カメラがリクティファイド座標系において平行ステレオの関係にあるときの姿勢である．
+リクティファイド座標系の原点をカメラAの光学中心とする．X軸をカメラAの光学中心からカメラBの光学中心へ向かう方向と定義する．
+X軸とY軸に垂直で，地表から天頂方向に向かう向きにZ軸をとる．
+また，Y軸は右手系に従い，原点における地表面の設置平面でX軸に垂直な方向と定義する．
+よって，カメラ間距離を$d$とすると，リクティファイド座標系においてカメラAの座標は$(0, 0, 0)$，カメラBの座標は$(d, 0, 0)$と表される．
+
+
+各カメラで撮影した画像を画像処理により，リクティファイド座標系における，平行ステレオ対の位置・姿勢で撮影した画像へと変換する．
+
+%以降，本論文におけるｚ座標はリクティファイド座標系におけるものとする．
+
+
+%（この後リクティファイド座標系の説明と図の説明をもう少しします）
+\clearpage
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=10cm]{./chap2/camera_zahyou2.eps}
+\vspace{5mm}
+\caption{カメラの座標系とリクティファイド座標系の関係}
+\label{fig:shisei1}
+\end{center}
+\end{figure}
+
+%\subsection{リクティファイド座標系への入力画像変換}
+%\label{ssec:rectification}
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=8cm]{./chap2/posture_trans.eps}
+\caption{リクティファイド座標系へのカメラ姿勢の変換}
+\label{fig:shisei2}
+\end{center}
+\end{figure}
+
+%世界座標系とリクティファイド座標系の関係を示した図を挿入します．
+
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{カメラキャリブレーション}
+\label{sec:calibration}
+魚眼カメラを通して撮影した画像は，レンズにより歪みが生じている．この歪みを補正するためにレンズ固有のパラメータを推定する必要がある．
+%また，\ref{sec:rectified_coordinate}節で詳しく述べるが，本研究ではステレオ計測を行うために2台のカメラで共通した座標系を設定する．
+また，各カメラで取得した画像をリクティファイド座標系における画像へと変換するためにカメラの位置や姿勢を推定する必要がある．
+
+そこで，本節では図\ref{fig:parameter}の通り，レンズ固有の内部パラメータである
+画像中心および歪みパラメータの推定手法を\ref{sec:internal_parameter}項，外部パラメータであるカメラの位置パラメータや姿勢の回転パラメータの推定手法を\ref{sec:external_parameter}項にて述べる．
+
+\vspace{1cm}
+
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=10cm]{./chap2/parameter.eps}
+\caption{推定するパラメータ}
+\label{fig:parameter}
+\end{center}
+\end{figure}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{内部パラメータの推定}
+\label{sec:internal_parameter}
+
+本研究において必要となる魚眼カメラの内部パラメータは，
+\begin{itemize}
+\item 画像中心（レンズ中心から結像面への垂線と結像面との交点）：$C_u$，$C_v$
+\item 魚眼レンズの歪みパラメータ：$k$
+\end{itemize}
+である．これらの推定手法を以下で述べる．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{画像中心の推定}
+
+本研究では，画像中心の推定にScaramuzzaらの手法を使用する\cite{scaramuzza2006}．
+%推定は以下の手順で行う．
+%（簡単に手順を書く）
+撮影装置を設置，固定した後，格子パターンを撮影可能範囲内で移動させながら様々な向き角度で撮影する．これにより図\ref{fig:Ocam}に示すような画像を取得し，10枚程度を入力画像とする．これにより魚眼カメラで取得される画像の画像中心の座標($C_u$, $C_v$)を推定する．
+
+\vspace{1cm}
+
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=11cm]{./chap2/ocamcalib.eps}
+\caption{画像中心の推定に使用する入力画像}
+\label{fig:Ocam}
+\end{center}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{魚眼レンズの歪みパラメータの推定}
+
+魚眼レンズの歪みパラメータの推定には，式(\ref{eq:model})を変形することにより得られる式(\ref{eq:distortion})を用いる．
+
+\begin{equation}
+k = \frac{r}{ 2\sin{\frac{\theta}{2}} }
+\label{eq:distortion}
+\end{equation}
+
+この式において，$\theta=90^{\circ}$のときの画像中心からのピクセル距離$r$は画像半径となっているため，画像半径を得ることができれば歪みパラメータを推定することができる．
+しかしながら画像中の撮影領域の境界は不鮮明で，画像半径を計測することは困難である．
+
+そこで魚眼レンズの歪みパラメータの推定に，図\ref{fig:chokusen}に示すような平行直線パターンを用いる．撮影装置で平行直線をパターンを撮影し，得られた画像の消失点を利用し歪みパラメータを推定する\cite{中野2007}．
+
+魚眼レンズにより平行直線パターンを撮影すると歪みが生じるが，全ての直線は互いに平行なためカメラの光軸から90$^{\circ}$の点で消失点を持つ．
+式(\ref{eq:distortion})に$\theta=90^{\circ}$と，推定した画像中心から消失点までのピクセル距離$r$を代入することにより，魚眼レンズの歪みパラメータを推定することができる．
+
+
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=11cm]{./chap2/chokusen.eps}
+\caption{歪みパラメータの推定に使用する入力画像}
+\label{fig:chokusen}
+\end{center}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{外部パラメータの推定}
+\label{sec:external_parameter}
+
+本研究において必要となる魚眼カメラの外部パラメータは，
+\begin{itemize}
+\item 各カメラの位置パラメータ（緯度，経度，高度）
+\item 各カメラの姿勢を共通の座標系における姿勢へ変換するために必要な回転パラメータ：$R$
+\end{itemize}
+である．これらの推定手法を以下で述べる．
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{位置パラメータの推定}
+\label{ssec:position}
+本研究では，使用する撮影装置にGPSユニットを搭載する．これにより，撮影装置を設置した場所の緯度，経度，高度といったGPS情報が取得した画像に付加され，各カメラの位置パラメータを取得することが可能である．
+
+GPSユニットによって得る各カメラの位置パラメータを利用し，リクティファイド座標系におけるカメラ間距離$d$を推定する．また\ref{ssec:rotation}条で詳細に述べるが，各カメラが取得する画像をリクティファイド座標系での画像へ変換するために，一方のカメラから他方のカメラへの方位角と仰角が必要である．これらも位置パラメータを利用して推定する．
+
+2台のカメラは10km前後の位置に設置されているため，地表を平面と近似する．2台のカメラとカメラ間距離，方位角，仰角の関係を図\ref{fig:camera_distance}に示す．図\ref{fig:camera_distance}に示す通り，カメラＡとカメラＢの緯度差，経度差，高度差を用いてカメラ間距離$d$，方位角，仰角を算出する．
+\vspace{1cm}
+
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=12cm]{./chap2/camera_distance.eps}
+\caption{カメラ間距離$d$，方位角，仰角の推定}
+\label{fig:camera_distance}
+\end{center}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{カメラ姿勢合わせのための回転パラメータ推定}
+\label{ssec:rotation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ref{ssec:position}条にて各カメラの位置パラメータの取得について述べたが，GPSユニットから得られる情報では各位置におけるカメラの姿勢を識別することはできない．
+カメラの姿勢を識別しリクティファイド座標系にて各カメラを平行ステレオの関係に変換するため，以下の手法により回転パラメータを推定する．
+
+本研究では，星の位置を利用することで回転パラメータを推定する．
+撮影される画像中で明確に確認できるN個の恒星を手動で指定し，画像中の星への方向ベクトルと，リクティファイド座標系における星への方向ベクトルを比較することによって推定する．
+%本研究では画像中で明確に確認できるN個の恒星を手動で指定する．
+
+画像を取得した際のカメラ座標系における，観測地点からN個の各星に向かう方向の単位ベクトルを$\mathbf{n_1}$，$\mathbf{n_2}$...$\mathbf{n_{\it i}}$とし，
+リクティファイド座標系での観測地点からN個の各星へ向かう方向の単位ベクトルを$\mathbf{m_1}$，$\mathbf{m_2}$...$\mathbf{m_{\it i}}$とする（ただし$i = 1, 2, ..., N$）．
+%$(x_1, y_1, z_1)$，$(x_2, y_2, z_2)$...$(x_i, y_i, z_i)$（ただし$i = 1, 2, ..., N$）とする．
+%また，リクティファイド座標系での観測地点からN個の各星へ向かう方向の単位ベクトルをそれぞれ$(X_1, Y_1, Z_1)$，$(X_2, Y_2, Z_2)$...$(X_i, Y_i, Z_i)$（ただし$i = 1, 2, ..., N$）とする．
+また，$\mathbf{n_{\it i}} = (x_i, y_i, z_i)^T$，$\mathbf{m_{\it i}} = (X_i, Y_i, Z_i)^T$と表す．
+カメラ姿勢と星の方向ベクトルを表した図を図\ref{fig:vector_direction}に示す．
+図\ref{fig:vector_direction}における赤色のカメラ姿勢を実際のカメラ姿勢，青色のカメラ姿勢をリクティファイド座標系でのカメラ姿勢とする．
+点線の矢印で示された方向がそれぞれの姿勢で取得される画像の画像中心方向である．ここでリクティファイド座標系からカメラ座標系への回転行列を$\mathbf{R}$とすると，
+式(\ref{eq:nRm})が成り立つ．
+\begin{eqnarray}
+\mathbf{n_{\it i}}=\mathbf{Rm_{\it i}}
+\label{eq:nRm}
+\end{eqnarray}
+式(\ref{eq:nRm})より，ベクトル$\mathbf{n_{\it i}}，\mathbf{m_{\it i}}$を求めれば回転パラメータを推定することができる．
+
+%\vspace{1cm}
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=7cm]{./chap2/vector_houkou.eps}
+\caption{カメラ姿勢と星の方向ベクトル}
+\label{fig:vector_direction}
+\end{center}
+\end{figure}
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+画像中の星と，観測地点からその星への方向ベクトルの関係を表した図を図\ref{fig:star_vector}に示す．図\ref{fig:star_vector}中のx軸，y軸，z軸はカメラ座標系の座標軸である．
+観測地点から{\it i}番目の星$S_i$への方向ベクトルを赤矢印で表している．画像中心を$(C_u, C_v)$，$S_i$の画像中での位置を$(u_i, v_i)$，画像中心からの画像上の$S_i$までの距離を$r_i$とおく．
+観測地点から$S_i$に向かう方向の単位ベクトルの算出するためには，図\ref{fig:star_vector}に示すような星への方向を表す単位ベクトル$(x_i, y_i, z_i)$の極座標表示$(\theta_i，\phi_i)$が求まれば良い．
+
+画像中心からの画像上の星までの距離を$r_i$は次の式(\ref{eq:ruv})により求まる．
+\begin{eqnarray}
+r_i=\sqrt{ \left(u_i-C_u\right)^{2}+ \left(v_i-C_v\right)^{2}} 
+\label{eq:ruv}
+\end{eqnarray}
+
+この$r_i$を用いることにより，式(\ref{eq:model})，図\ref{fig:star_vector}から，式（\ref{eq:func_theta1}），（\ref{eq:func_phi1}）によって星の方向ベクトル$(\theta_i，\phi_i)$が算出される．
+式（\ref{eq:func_phi1}）はどちらの式を用いても求めることができる．
+\begin{equation}
+\theta_i = 2\sin^{-1}{\frac{r_i}{2k}}
+\label{eq:func_theta1}
+\end{equation}
+
+\begin{equation}
+\phi_i = \cos^{-1}{\frac{u - C_{u}}{r_i}}, \ \phi_i = \sin^{-1}{\frac{v - C_{v}}{r_i}}
+\label{eq:func_phi1}
+\end{equation}
+求めた星の方向を表す極座標表示の単位ベクトル$(\theta_i，\phi_i)$から，星の方向を表す直交座標表示の単位ベクトル$(x_i, y_i, z_i)$は式(\ref{eq:xyz})により得られる．
+
+\begin{eqnarray}
+\mathbf{n_{\it i}}=
+\left[\begin{array}{cc}x_i \\ y_i \\ z_i \end{array}\right]=\left[\begin{array}{cc}\sin\theta_i\cos\phi_i \\ \sin\theta_i\sin\phi_i \\ \cos\theta_i \end{array}\right]
+\label{eq:xyz}
+\end{eqnarray}
+
+%\vspace{1cm}
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=6cm]{./chap2/star_vector.eps}
+\caption{星の方向ベクトル}
+\label{fig:star_vector}
+\end{center}
+\end{figure}
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+リクティファイド座標系における$S_i$への方向の単位ベクトル$\mathbf{m}_i$を求めるためには，撮影した時刻における$S_i$の位置を知る必要があるが，
+任意の時刻，位置，方向で観測したときの全ての星の位置は厳密に知ることができる．また，星の位置をプラネタリウム形式で表示し，容易に知ることができるようにしたソフトウェアも多数存在する．
+本研究では，その中の1つであるToxsoft社が開発したStella Theater Liteを使用する．本研究にて使用する星の地図（Stella Theater Lite）を図\ref{fig:star_map}に示す．
+
+\vspace{1cm}
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=9cm]{./chap2/StellaTheaterLite2.eps}
+\caption{星の地図（Stella Theater Lite）}
+\label{fig:star_map}
+\end{center}
+\end{figure}
+
+\clearpage
+
+星の地図には，\ref{ssec:position}条で取得する観測地点の緯度，経度，写真を撮影する時刻を入力することで，観測地点からこの地図上の任意の星への方位角，仰角を取得することができる．
+ただし，この方位角と仰角は世界座標系におけるものである．本論文において，世界座標系はカメラAを原点とし，南へ向かう方向をX'軸，東へ向かう方向をY'軸，X'軸とY軸に垂直で'天頂方向へ向かう方向をZ'軸とする．
+図\ref{fig:world_vector}に示すように，方位角はX'軸からY'軸へ向かう角度，仰角はX'Y'平面からZ'軸へ向かう角度とする．
+星の地図より得られる方位角，仰角を用いて図\ref{fig:star_vector}における$(\theta_i，\phi_i)$は容易に求めることができるため，
+式(\ref{eq:xyz})と同様にして世界座標系における$星_i$の方向の単位ベクトル $(X'_i, Y'_i, Z'_i)^T$を算出することができる．
+
+%\clearpage
+
+世界座標系における星の方向ベクトルをリクティファイド座標系における方向ベクトルへ変換するために，\ref{ssec:position}条でGPSの位置情報から算出したカメラ間の方位角と仰角を使用する．
+リクティファイド座標系における星の方向ベクトルの算出を図\ref{fig:ricthi_vector}に示す．図中のX軸，Y軸，Z軸はリクティファイド座標系の座標軸である．カメラAからカメラBへの方位角，仰角をそれぞれ$\alpha$，$\beta$とする．
+ただし，$\alpha$はX'軸からY'軸へ向かう方向を正，$\beta$はX'Y'平面からZ'軸へ向かう方向を正とする．
+このとき，反時計回りを正として座標系をY'軸周りに$\beta$，Z'軸周りに$\alpha$回転する回転行列$\mathbf{r_{\it \beta}}$，$\mathbf{r_{\alpha}}$は次の式(\ref{eq:rotation_matrix})で表される．
+
+\begin{equation}
+\mathbf{r_{\beta}}=
+\begin{bmatrix}
+\cos \beta &0 &\sin \beta\\
+0 &1 &0\\
+-\sin \beta &0 &\cos \beta
+\end{bmatrix}
+，\mathbf{r_{\alpha}}=
+\begin{bmatrix}
+\cos \alpha &\sin \alpha &0\\
+-\sin \alpha &\cos \alpha &0\\
+0 &0 &1
+\end{bmatrix}
+\label{eq:rotation_matrix}
+\end{equation}
+
+よって，リクティファイド座標系における$星_i$に向かう方向の単位ベクトル$\mathbf{m_{\it i}}$は次の式(\ref{eq:ricthi_vector})で求められる．
+
+\begin{equation}
+\mathbf{m_{\it i}}=
+\begin{bmatrix}
+X_i\\
+Y_i\\
+Z_i
+\end{bmatrix}
+=\mathbf{r_{\alpha}}\mathbf{r_{\beta}}
+\begin{bmatrix}
+X'_i\\
+Y'_i\\
+Z'_i
+\end{bmatrix}
+\label{eq:ricthi_vector}
+\end{equation}
+
+
+ここで，リクティファイド座標系からカメラ座標系への回転行列$\mathbf{R}$はN個の星全てにおいて式(\ref{eq:nRm})を満たす行列である．
+よって，リクティファイド座標系における$星_i$の方向ベクトル$\mathbf{m_{\it i}}$と，カメラ座標系における$星_i$の方向ベクトル$\mathbf{n_{\it i}}$から，回転行列$\mathbf{R}$を用いたときの誤差$\mathbf{n}_i^\mathrm{T}\mathbf{R}\mathbf{m}_i$の総和が最小となるような回転行列$\mathbf{R}$を求めればよい．ゆえに，式(\ref{eq:hyoukaE})のような評価関数$E$を設定し，式(\ref{eq:saisyouR})のように$E$が最小となる回転行列$\mathbf{R}$をカメラA，カメラBの場合それぞれにおいて推定する．なお，推定の際には最急降下法を用いる．\\
+
+\begin{equation}
+ E=1-\frac{1}{N}\sum_{i=1}^{N}\left( \mathbf{n}_i^\mathrm{T}\mathbf{R}\mathbf{m}_i\right)
+\label{eq:hyoukaE}
+\end{equation}
+
+\begin{equation}
+ \mathbf{R}=\argmin_{R}E
+\label{eq:saisyouR}
+\end{equation}
+
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=9cm]{./chap2/ricthi_vector3.eps}
+\caption{世界座標系における星への方向ベクトルの算出}
+\label{fig:world_vector}
+\end{center}
+\end{figure}
+
+\begin{figure}[hbp]
+\begin{center}
+\includegraphics[width=11cm]{./chap2/ricthi_vector4.eps}
+\caption{リクティファイド座標系における星への方向ベクトルの算出}
+\label{fig:ricthi_vector}
+\end{center}
+\end{figure}
+
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{リクティファイド座標系への入力画像変換}
+\label{sec:rectification}
+
+%\subsection{リクティファイド座標系への入力画像変換}
+%\label{ssec:rectification}
+
+本節では，\ref{sec:calibration}節にて推定したパラメータを基に，画像を
+\ref{sec:fish-eye_camera}節で定義したリクティファイド座標系に従う画像へと変換する手法について述べる．
+
+画像の変換には，\ref{ssec:rotation}条にて推定した回転行列$\mathbf{R}$を用いる．
+変換後の画像上の任意の点を$(U, V)$，それに対応する変換前の画像上の点を$(u, v)$とする．
+\ref{sec:internal_parameter}項にて推定した画像中心$(C_u, C_v)$，歪みパラメータ$k$を使用し，
+式(\ref{eq:ruv})--(\ref{eq:xyz})から，$(u, v)$に対応する3次元方向ベクトル$\mathbf{n}$が式(\ref{eq:n_vector})のように算出可能である．
+
+\begin{equation}
+\mathbf{n}=
+\begin{bmatrix}
+\frac{u - C_{u}}{k}\sqrt{1-\frac{r^2}{4k^2}}\\
+\frac{v - C_{v}}{k}\sqrt{1-\frac{r^2}{4k^2}}\\
+\frac{r^4}{2k^4}-\frac{2r^2}{k^2}+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+x(u,v)\\
+y(u,v)\\
+z(u,v)
+\end{bmatrix}
+\label{eq:n_vector}
+\end{equation}
+
+ここで，回転行列$\mathbf{R}$はリクティファイド座標系からカメラ座標系へ変換する行列であるため，
+式(\ref{eq:nRm})が成り立つ．
+よって回転行列$\mathbf{R}$の逆行列$\mathbf{R}^{-1}$を式(\ref{eq:rotation_matrix_Inver})で表すと，
+$(U, V)$に対応する3次元方向ベクトル$\mathbf{m}$は式(\ref{eq:m_vector})により得られ，
+式(\ref{eq:m_vector})から極座標表示$(\theta，\phi)$は式(\ref{eq:theta_phi})により，$\mathbf{n}$の関数として表せる．
+
+\begin{equation}
+\mathbf{R}^{-1}=
+\begin{bmatrix}
+r_{11} &r_{12} &r_{13}\\
+r_{21} &r_{22} &r_{23}\\
+r_{31} &r_{32} &r_{33}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\mathbf{r}_{1}\\
+\mathbf{r}_{2}\\
+\mathbf{r}_{3}
+\end{bmatrix}
+，\mathbf{r}_{k}=
+\begin{bmatrix}
+r_{k1} &r_{k2} &r_{k3}
+\end{bmatrix}
+（k=1,2,3）
+\label{eq:rotation_matrix_Inver}
+\end{equation}
+
+\begin{equation}
+\mathbf{m}=
+\begin{bmatrix}
+\sin\theta\cos\phi\\
+\sin\theta\sin\phi\\
+\cos\theta
+\end{bmatrix}
+=\mathbf{R}^{-1}\mathbf{n}=
+\begin{bmatrix}
+\mathbf{r}_{1}\mathbf{n}\\
+\mathbf{r}_{2}\mathbf{n}\\
+\mathbf{r}_{3}\mathbf{n}
+\end{bmatrix}
+\label{eq:m_vector}
+\end{equation}
+
+%\begin{equation}
+%\theta= \arccos(\mathbf{r}_{3}\mathbf{n})= f(\mathbf{n}), \phi=\arctan(\frac{\mathbf{r}_{2}\mathbf{n}}{\mathbf{r}_{1}\mathbf{n}})=g(\mathbf{n})
+%\label{eq:theta_phi}
+%\end{equation}
+
+\begin{equation}
+\begin{bmatrix}
+\theta\\
+\phi
+\end{bmatrix}
+=
+\begin{bmatrix}
+\arccos(\mathbf{r}_{3}\mathbf{n})\\
+\arctan(\frac{\mathbf{r}_{2}\mathbf{n}}{\mathbf{r}_{1}\mathbf{n}})
+\end{bmatrix}
+=
+\begin{bmatrix}
+f(\mathbf{n})\\
+g(\mathbf{n})
+\end{bmatrix}
+\label{eq:theta_phi}
+\end{equation}
+
+また，式(\ref{eq:func_theta1})--(\ref{eq:func_phi1})から，$(U, V)$は式(\ref{eq:UV_uv})により$(\theta，\phi)$の関数で表せる．
+
+\begin{equation}
+\begin{bmatrix}
+U\\
+V
+\end{bmatrix}
+=
+\begin{bmatrix}
+C_u+2k\sin\frac{\theta}{2}\cos\phi\\
+C_v+2k\sin\frac{\theta}{2}\sin\phi
+\end{bmatrix}
+=
+\begin{bmatrix}
+h(\theta,\phi)\\
+i(\theta,\phi)
+\end{bmatrix}
+\label{eq:UV_uv}
+\end{equation}
+
+以上の式(\ref{eq:n_vector})--(\ref{eq:UV_uv})から，変換後の点$(U, V)$と，変換前の点$(u, v)$との対応が算出できるため，
+リクティファイド座標系に従う画像を取得することが可能である．
+
+リクティファイド座標系に従う画像へ変換前の画像の例を図\ref{fig:trans_in}，変換後の画像の例を図\ref{fig:trans_out}に示す．
+カメラA，カメラBで撮影された画像中のオーロラ形状を目視でそれぞれ比較すると，図\ref{fig:trans_in}においては
+カメラBで撮影されたものがカメラAで撮影されたものに対して時計回り方向に回転したようになっていることが確認できる．
+一方で，変換後の図\ref{fig:trans_out}においては2枚の画像中のオーロラの向きが一致していることが分かる．
+
+
+\begin{figure}[htb]
+  \centering
+  \subfigure[カメラA]{
+    \includegraphics[width=5cm]{./chap2/PI1_before.eps}
+  \label{fig:trans_in1}}
+  \subfigure[カメラB]{
+    \includegraphics[width=5cm]{./chap2/PI2_before.eps}
+  \label{fig:trans_in2}}
+  \caption{リクティファイド座標系への変換前画像}
+  \label{fig:trans_in}
+\end{figure}
+
+
+\begin{figure}[htb]
+  \centering
+  \subfigure[カメラA]{
+    \includegraphics[width=5cm]{./chap2/PI1_after.eps}
+  \label{fig:trans_out1}}
+  \subfigure[カメラB]{
+    \includegraphics[width=5cm]{./chap2/PI2_after.eps}
+  \label{fig:trans_out2}}
+  \caption{リクティファイド座標系への変換後画像}
+  \label{fig:trans_out}
+\end{figure}
+
+%（画像差し替え？）
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{補正面展開}
+\label{sec:undistorted}
+
+魚眼カメラにより取得する画像は，魚眼レンズの性質により歪みを有する．本節では取得画像から魚眼レンズによる歪みを除去する手法について述べる．
+この処理を補正面展開と呼ぶ．
+
+本研究で使用する魚眼レンズの歪みは\ref{sec:fish-eye_camera}で述べた通り，式(\ref{eq:model})に従っている．
+そこで式(\ref{eq:model})から屈折する前の画像を推定する．
+
+補正面展開の様子を図\ref{fig:fisheye_ray}，図\ref{fig:hoseimen}に示す．図\ref{fig:fisheye_ray}は画像上の点からの入射光の展開の様子を上から見た模式図，
+図\ref{fig:hoseimen}は図\ref{fig:fisheye_ray}を下方から上方へ向けて模式的に表した図を示している．
+補正面展開前の任意の点$(x_p, y_p)$が補正面展開後の画像上で$(X_p, Y_p)$となるとし，任意の画角$\omega$ の範囲にて補正面展開を行う．
+また，補正面展開後の画像の高さ，幅をそれぞれH，Wとし，図\ref{fig:fisheye_ray}のように距離$Z_v$を設定する．
+
+魚眼レンズによる歪みは画像中心から放射方向のみであるから，補正面展開前の画像中心から任意の点$(x_p, y_p)$までの距離を$r$，補正面展開後の画像中心から対応する点$(X_p, Y_p)$までの距離を$R$とすると，
+図\ref{fig:fisheye_ray}，図\ref{fig:hoseimen}より，$(x_p, y_p)$，$(X_p, Y_p)$は次のような関係を持つ．
+
+\begin{eqnarray}
+\left[\begin{array}{cc}x_p\\y_p \end{array}\right] = \frac{r}{R} \left[\begin{array}{cc}X_p \\ Y_p \end{array}\right]
+\label{eq:XY}
+\end{eqnarray}
+
+よって，補正面展開後の画像上の点$(X_p, Y_p)$に対応する補正面展開前の画像上の点$(x_p, y_p)$を求めるためには$r$，$R$の値が求まれば良い．
+ここで，$R$は図\ref{fig:fisheye_ray}より，次式(\ref{eq:R})により求まる．
+
+\begin{eqnarray}
+R = \sqrt{ X_p^2 + Y_p^2}
+\label{eq:R}
+\end{eqnarray}
+
+また，$r$は式(\ref{eq:model})より，$\theta$の値が定まれば算出できる．$\theta$の値は次式(\ref{eq:theta})，(\ref{eq:Zv})により算出される．
+したがって$r$は式(\ref{eq:r_p})により，$X_p$，$Y_p$，$Z_p$の関数で表される．
+
+\begin{eqnarray}
+\theta = \cos^{-1} \frac{Zv}{\sqrt{ X_p^2 + Y_p^2 + Z_v^2} }
+\label{eq:theta}
+\end{eqnarray}
+
+\begin{eqnarray}
+Z_v = \frac{W}{ 2\tan{\frac{\omega}{2}} }
+\label{eq:Zv}
+\end{eqnarray}
+
+\begin{eqnarray}
+r = f(X_p,Y_p,Z_p)
+\label{eq:r_p}
+\end{eqnarray}
+
+以上の関係式に基づき，補正面展開を行う．
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=7cm]{./chap2/fisheye_ray.eps}
+\vspace{-0.5cm}
+\caption{魚眼レンズへの入射光の展開の様子}
+\label{fig:fisheye_ray}
+\end{center}
+\end{figure}
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=7cm]{./chap2/hoseimen.eps}
+\caption{補正面展開による点の展開の様子}
+\label{fig:hoseimen}
+\end{center}
+\end{figure}
+
+\clearpage
+
+補正面展開を行う前の画像の例を図\ref{fig:before_expansion_120}，その画像に対して補正面展開を行った後の画像を図\ref{fig:after_expansion_120}に示す．
+図\ref{fig:before_expansion_120}中において魚眼レンズにより歪んでいた線が，図\ref{fig:after_expansion_120}の補正面展開後の画像中では直線になっていることが確認できる．
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=7cm]{./chap2/before_expansion.eps}
+\caption{補正面展開前の画像の例（魚眼カメラでの取得画像）}
+\label{fig:before_expansion_120}
+\end{center}
+\end{figure}
+
+\vspace{-0.5cm}
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=7cm]{./chap2/after_expansion.eps}
+\caption{補正面展開後の画像の例}
+\label{fig:after_expansion_120}
+\end{center}
+\end{figure}
+
+
+\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{背景差分によるオーロラ領域の抽出}
+%\label{sec:backsubtraction}
+
+%前節までの処理により，魚眼カメラによって取得した画像対をリクティファイド座標系において平行ステレオペアになるような画像へと変換できる．
+%3章で詳しく述べるが，本研究では3次元計測のためにテンプレートマッチングを用いてオーロラ画像対の特徴点を検出する．
+%テンプレートマッチングでは画像対における類似する箇所同士を対応付けるため，オーロラ以外の領域同士が特徴点として対応付けられる可能性がある．
+%そこで，オーロラ領域のみから特徴点を探索するため，画像中からオーロラ領域を抽出する必要がある．
+%本研究では，背景差分を用いてオーロラ領域を抽出する．
+
+%背景差分とは，処理する画像と事前に取得しておいた背景画像とを比較し，背景画像中には存在しない領域を前景として抽出する処理である．
+%本研究では，同地点で撮影したオーロラの写っていない画像を背景画像とする．
+%オーロラ画像同様にリクティファイド座標系へと画像を変換し，これをオーロラ画像と比較することでオーロラ領域を抽出する．
+
+
+%\begin{figure}[b]
+%\begin{center}
+%\subfigure[オーロラ画像]{%
+%\includegraphics[width=6cm]{./chap2/backsub_original.eps}
+%\label{fig:backsub_original}}%
+%\hspace{20pt}
+%\subfigure[前景画像]{%
+%\includegraphics[width=6cm]{./chap2/backsub.eps}
+%\label{fig:backsub_image}}%
+%\caption{背景差分処理の例}
+%\label{fig:backsub}
+%\end{center}
+%\end{figure}
+
+%背景差分処理の例を図\ref{fig:backsub}に示す．
+%処理するオーロラ画像が図\ref{fig:backsub_original}，処理後の前景画像が図\ref{fig:backsub_image}である．
+%図\ref{fig:backsub_image}において白く表されている領域が差分により抽出された前景領域である．
+%前景領域としてオーロラ領域が抽出されていることが確認できる．
+
+%テンプレートマッチングの際に，テンプレートの全ピクセルがこの前景領域に完全に属しているときのみマッチングを行うことで
+%オーロラ領域の特徴点探索ができ，かつ処理時間の減少も図れる．
+%\clearpage
+
+%（以下の説明は次章のテンプレートマッチングの節でした方が良いか？もしくはこの節自体を次章にした方がいいか？）
+
+%画像中に写っている星は常時移動しているため，背景画像とオーロラ画像における星の位置は異なる．
+%そのため星も前景として抽出されてしまう．
+
+%しかし星1つの領域は画像に対して極めて小さいためテンプレートマッチングの際に，
+%比較するテンプレートが前景領域の中に完全に入っている時のみマッチングを行うという制限を設けることにより，
+%抽出された星の影響をなくすことができる．
+
+%しかし，これらの領域は画像に対して極めて小さく，まばらに存在する．
+%よってテンプレートマッチングの際に，テンプレートの全ピクセルがこの前景領域に完全に属しているときのみマッチングを行うことで
+%前景中の星の影響を排除できる．
+
+%また，街や家屋の灯り等で比較画像間でわずかに空の明るさが異なる箇所や，ライトの光などが写った箇所がある場合，そのような箇所も前景画像に抽出される．
+%図\ref{fig:backsub_image}において右上が白くなているのが街灯りの影響である．
+%しかし本研究では十分に離れた2台の魚眼カメラを使用するため，2台のカメラにより同時刻に撮影された画像対の前景画像の同じ位置にそのような光が抽出されることは考えにくい．
+%そこで2つのカメラによる2枚の前景画像において共に前景である領域のみマッチングを行うことで影響を排除できる．
+
+%これらによりオーロラ領域のみから特徴点を探索でき，更に処理時間の減少も図れる．
+
+
+%\clearpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{おわりに}
+本章では，魚眼カメラを用いたオーロラ計測を行うための画像処理について述べた．
+
+\ref{sec:fish-eye_camera}節では，本研究で使用する魚眼レンズのモデルとその特性について述べた．
+また\ref{sec:rectified_coordinate}節で本研究で用いる座標系について述べた．
+
+\ref{sec:calibration}節では，\ref{sec:rectified_coordinate}節で述べた座標系へ画像を変換するために必要なカメラのパラメータを
+\ref{sec:fish-eye_camera}節にて述べたモデルを基に推定する手法について述べた．
+\ref{sec:internal_parameter}項では内部パラメータの推定手法を，
+\ref{sec:external_parameter}項では外部パラメータの推定手法を述べた．
+
+そして\ref{sec:rectification}節では，\ref{sec:calibration}節で推定したパラメータを基にリクティファイド座標系に従う画像への変換方法について述べた．
+
+最後に\ref{sec:undistorted}節では，画像から魚眼レンズによる歪みを取り除く補正面展開の手法について述べ，
+%最後に\ref{sec:backsubtraction}節で画像からオーロラ領域を抽出する背景差分処理について述べた．
+
+次章では，リクティファイド座標系に従うよう変換された画像を入力とし，
+オーロラの3次元計測を行う手法について述べる．
+
+
+\clearpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% mode: katex
+%%% TeX-master: "../thesis"
+%%% End:
