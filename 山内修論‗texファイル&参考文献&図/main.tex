@@ -1,0 +1,113 @@
+\documentclass[12pt, dvipdfmx]{jsbook}
+\usepackage{./sty/pethesis}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{./sty/cite}
+\usepackage{minitoc}
+\usepackage{hhline}
+\usepackage{slashbox}
+\usepackage{booktabs}
+\usepackage{comment}
+\usepackage{ulem}
+\usepackage{url}
+\renewcommand\UrlFont{\rmfamily}
+\usepackage{./sty/algorithm}
+\usepackage{./sty/algorithmic}
+\usepackage{color}
+\usepackage{latexsym}
+\usepackage{ascmac}
+\usepackage{breqn} % 式を途中で折り返すため
+\usepackage{setspace} % 文書内の行間隔を調整
+\usepackage{./sty/xbmkanji}
+\usepackage[labelsep=quad]{caption}
+\usepackage{otf} % UTFで指定した漢字をPDFに明記するため
+\AtBeginDvi{\special{pdf:mapfile font.map}}
+
+\makeatletter
+\newcommand{\figcaption}[1]{\def\@captype{figure}\caption{#1}}
+\newcommand{\tblcaption}[1]{\def\@captype{table}\caption{#1}}
+\makeatother
+
+% \usepackage[dvipdfmx, usenames]{color} %橘高追加 [usenames] → [dvipdfmx, usenames]（前者は古いドライバのため，graphicxパッケージと干渉してeps以外の画像形式に対応できなくなる）
+
+% \usepackage{subfloat}
+% \usepackage[subrefformat=parens]{subcaption} %橘高追加
+% \captionsetup{compatibility=false} %橘高追加
+%\usepackage{otf} %橘高追加
+
+
+\renewcommand{\refname}{}
+
+\newcommand\whline{%
+     \noalign{\xdef\origarrayrulewidth{\the\arrayrulewidth}%
+     \global\arrayrulewidth 3\arrayrulewidth}%
+     \hline%
+     \noalign{\global\arrayrulewidth\origarrayrulewidth}%
+}
+
+
+\newcommand{\SfM}{Structure from Motion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\iffigure
+%\igurefalse
+\figuretrue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% 論文の表紙の項目
+%
+\thesistype{令和元年度 修士論文}
+\title{スペクトル画像を用いた土質パラメータの推定に\\基づく建設機械の走破性判定}
+\etitle{Judgement of Trafficability of Construction Machinery  \\ Based on Estimation of Soil Parameters from Spectral Images}
+\affiliation{東京大学大学院 工学系研究科 精密工学専攻}
+\supervisor{山下 淳 准教授}
+\studentid{37-186291}
+\author{山内 統広}
+\begin{document}
+\dominitoc
+%表紙
+\maketitle
+%概要
+%\thispagestyle{empty}
+%\thispagestyle{empty}
+%\input{./Frontmatter/abst}
+
+\frontmatter
+% \input{../FrontMatter/Abstract}
+%目次
+\begin{spacing}{1.02} % 目次の行間隔を調整して"第3章"という記述をページの一番下から移動
+\tableofcontents
+\end{spacing}
+%図目次
+\listoffigures
+%表目次
+\listoftables
+
+
+%以下本文
+\mainmatter
+\input{./Ch1_Introduction/Ch1_Introduction_Ver.2}
+\input{./Ch2_PrinciplesOfMethod/Ch2_PrinciplesOfMethod_Ver.2}
+\input{./Ch3_SoilTypeDiscrimination/Ch3_SoilTypeDiscrimination_Ver.2}
+\input{./Ch4_WaterContentEstimation/Ch4_WaterContentEstimation_Ver.2}
+\input{./Ch5_ConeIndexEstimation/Ch5_ConeIndexEstimation_Ver.2}
+\input{./Ch6_Conclusion/Ch6_Conclusion_Ver.2}
+
+\cleardoublepage
+%
+%謝辞
+\addcontentsline{toc}{chapter}{謝辞}
+\input{./BackMatter/Acknowledgment}
+\cleardoublepage
+%	
+%参考文献
+\addcontentsline{toc}{chapter}{参考文献}
+\input{./BackMatter/Reference}
+\cleardoublepage
+%
+%研究業績
+\addcontentsline{toc}{chapter}{研究業績}
+\input{./BackMatter/ResearchPublications}
+\cleardoublepage
+
+\end{document}

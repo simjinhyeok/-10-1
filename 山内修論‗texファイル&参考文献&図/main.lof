@@ -1,0 +1,59 @@
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{序論}{1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces 日本と世界における地震，活火山，上陸した熱帯低気圧の数\relax }}{3}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces 土砂災害の発生件数（\cite {国交省2019}を参考に作成）\relax }}{4}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces 土砂災害による被害（\cite {国交省2019}を参考に作成）\relax }}{5}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces 軟弱な地盤にはまり込んだ建設機械（2019年8月28日撮影．詳細は5.4\@setref@ {}節に記載）\relax }}{6}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces コーンペネトロメータを用いたコーン指数の測定\relax }}{8}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces 修論構成\relax }}{14}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{スペクトル画像を用いた非接触でのコーン指数推定の原理}{15}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces 一般的なRGB画像とスペクトル画像の比較\relax }}{21}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{マルチスペクトル画像を用いた土の種類の識別}{27}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces 本章で解説する部分（茶色の部分）\relax }}{29}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 土の種類ごとに異なる分光反射率スペクトル\relax }}{31}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces 分光反射率スペクトルを比較した3種類の異なる土の画像\relax }}{31}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 取得する波長帯の数が異なる画像を用いた土の種類の識別精度の比較\relax }}{32}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces マルチスペクトル画像を分類するニューラルネットワーク\relax }}{35}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 検証実験における撮影機材の配置\relax }}{37}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces NH-7\relax }}{37}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces 土の種類を識別する検証実験用のデータ\relax }}{39}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces 10種類の土の識別結果を示す混同行列\relax }}{40}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{マルチスペクトル画像を用いた含水比の推定}{43}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 本章で解説する部分（茶色の部分）\relax }}{45}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 土に含まれる空気，水，土粒子の関係（\cite {日本建設総合試験所2019}を参考に作成）\relax }}{46}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 同一種類の土における含水比の増加に伴う分光反射率の減少\relax }}{48}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces 含水比と2つの波長帯の分光反射率の関係\relax }}{51}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 含水比と分光反射率の差の関係\relax }}{51}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 含水比と分光反射率の差の関係への指数近似線のフィッティング\relax }}{53}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces 含水比推定の検証実験における撮影機材の配置\relax }}{55}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces 含水比推定の検証実験における異なる含水比のサンプルの配置\relax }}{55}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Macaw\relax }}{56}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces 含水比推定の検証実験用のデータ\relax }}{57}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces 含水比推定のための指数近似線によるフィッティング\relax }}{59}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{土の種類と含水比を用いたコーン指数の推定}{63}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces 本章で解説する部分（茶色の部分）\relax }}{65}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces コーン指数と含水比の関係の例\relax }}{67}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces 推定された含水比からコーン指数の推定値を求める例\relax }}{67}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces 検証実験の現場\relax }}{69}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces 埋め戻す前の実験場所\relax }}{70}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces 埋め戻した後の実験場所\relax }}{70}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces スペクトルカメラの配置\relax }}{71}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces マルチスペクトルカメラの撮影\relax }}{73}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces 検証実験における測定の様子\relax }}{73}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces マルチスペクトル画像の画素の選別\relax }}{75}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces 不適切な明るさのマルチスペクトル画像\relax }}{76}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces 適切な明るさのマルチスペクトル画像\relax }}{76}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces 校正シートの反射光\relax }}{77}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces 6種類の粘性土の識別結果を示す混同行列\relax }}{78}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces 実験場所の土の含水比とコーン指数の関係\relax }}{80}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces コーン指数の誤差が小さい場合\relax }}{81}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces 表5.1\@setref@ {}の1番上のコーン指数の実測値と推定値\relax }}{82}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces 走破性判定の確認に使用した油圧ショベルSK130UR-1E\relax }}{83}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces 走破可能であると判定された実験場所の実際の走破性\linebreak （コーン指数の推定値: 71${\rm kN/m^2}$，コーン指数の実測値: 72${\rm kN/m^2}$）\relax }}{84}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces 走破不可能であると判定された実験場所の実際の走破性\relax }}{85}
+\addvspace {10\jsc@mpt }
+\contentsline {xchapter}{結論}{89}

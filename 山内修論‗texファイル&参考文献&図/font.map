@@ -1,0 +1,27 @@
+otf-ujmr-h      UniJIS-UTF16-H  ipaexm.ttf
+otf-ujmr-v      UniJIS-UTF16-V  ipaexm.ttf
+otf-cjmr-h      Identity-H      ipaexm.ttf/AJ16
+otf-cjmr-v      Identity-V      ipaexm.ttf/AJ16
+hminr-h         H               ipaexm.ttf
+hminr-v         V               ipaexm.ttf
+
+otf-ujgr-h      UniJIS-UTF16-H  ipaexg.ttf
+otf-ujgr-v      UniJIS-UTF16-V  ipaexg.ttf
+otf-cjgr-h      Identity-H      ipaexg.ttf/AJ16
+otf-cjgr-v      Identity-V      ipaexg.ttf/AJ16
+hgothr-h        H               ipaexg.ttf
+hgothr-v        V               ipaexg.ttf
+
+otf-ujmb-h      UniJIS-UTF16-H  ipaexm.ttf
+otf-ujmb-v      UniJIS-UTF16-V  ipaexm.ttf
+otf-cjmb-h      Identity-H      ipaexm.ttf/AJ16
+otf-cjmb-v      Identity-V      ipaexm.ttf/AJ16
+hminb-h         H               ipaexm.ttf
+hminb-v         V               ipaexm.ttf
+
+otf-ujgb-h      UniJIS-UTF16-H  ipaexg.ttf
+otf-ujgb-v      UniJIS-UTF16-V  ipaexg.ttf
+otf-cjgb-h      Identity-H      ipaexg.ttf/AJ16
+otf-cjgb-v      Identity-V      ipaexg.ttf/AJ16
+hgothb-h        H               ipaexg.ttf
+hgothb-v        V               ipaexg.ttf
