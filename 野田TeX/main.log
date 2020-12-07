@@ -1,0 +1,838 @@
+This is e-pTeX, Version 3.14159265-p3.8.0-180226-2.6 (utf8.sjis) (TeX Live 2018/W32TeX) (preloaded format=platex 2018.4.2)  12 FEB 2020 11:17
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**main.tex
+(./main.tex
+pLaTeX2e <2018/03/09>+1 (based on LaTeX2e <2017-04-15>)
+Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+(c:/w32tex/share/texmf-dist/tex/platex/jsclasses/jsbook.cls
+Document Class: jsbook 2018/03/11 jsclasses (okumura, texjporg)
+\jsc@mpt=\dimen118
+\jsc@mmm=\dimen119
+\jsc@smallskipamount=\skip41
+LaTeX Info: Redefining \rmfamily on input line 471.
+LaTeX Info: Redefining \sffamily on input line 474.
+LaTeX Info: Redefining \ttfamily on input line 477.
+LaTeX Info: Redefining \textmc on input line 481.
+LaTeX Info: Redefining \textgt on input line 483.
+\symmincho=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
+(Font)                  JY1/mc/m/n --> JY1/gt/m/n on input line 545.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 736.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 736.
+\fullwidth=\dimen120
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 897.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 897.
+\c@part=\count82
+\c@chapter=\count83
+\c@section=\count84
+\c@subsection=\count85
+\c@subsubsection=\count86
+\c@paragraph=\count87
+\c@subparagraph=\count88
+\c@figure=\count89
+\c@table=\count90
+\abovecaptionskip=\skip42
+\belowcaptionskip=\skip43
+\jsc@tocl@width=\dimen121
+\@lnumwidth=\dimen122
+\bibindent=\dimen123
+(c:/w32tex/share/texmf-dist/tex/platex/jsclasses/jslogo.sty
+Package: jslogo 2017/02/24 okumura, texjporg
+LaTeX Info: Redefining \TeX on input line 94.
+LaTeX Info: Redefining \LaTeX on input line 147.
+LaTeX Info: Redefining \LaTeXe on input line 200.
+)
+\heisei=\count91
+) (./pethesis.sty
+pethesis.sty - Sat, Jan 23 2010 by Takashi Michikawa
+(c:/w32tex/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
+Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
+s
+\f@nch@headwidth=\skip44
+\f@nch@O@elh=\skip45
+\f@nch@O@erh=\skip46
+\f@nch@O@olh=\skip47
+\f@nch@O@orh=\skip48
+\f@nch@O@elf=\skip49
+\f@nch@O@erf=\skip50
+\f@nch@O@olf=\skip51
+\f@nch@O@orf=\skip52
+)
+(c:/w32tex/share/texmf-dist/tex/latex/fancybox/fancybox.sty
+Package: fancybox 2010/05/15 1.4
+
+Style option: `fancybox' v1.4 <2010/05/15> (tvz)
+\@fancybox=\box42
+\shadowsize=\dimen124
+\@Sbox=\box43
+\do@VerbBox=\toks15
+\the@fancyput=\toks16
+\this@fancyput=\toks17
+\EndVerbatimTokens=\toks18
+\Verbatim@Outfile=\write3
+\Verbatim@Infile=\read1
+) (c:/w32tex/share/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
+)
+(c:/w32tex/share/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+
+(c:/w32tex/share/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2017/04/05 v2.0i Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+))
+(c:/w32tex/share/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
+
+(c:/w32tex/share/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(c:/w32tex/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
+
+(c:/w32tex/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(c:/w32tex/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: dvipdfmx.def on input line 99.
+
+(c:/w32tex/share/texmf-dist/tex/latex/graphics-def/dvipdfmx.def
+File: dvipdfmx.def 2017/06/24 v5.0g Graphics/color driver for dvipdfmx
+))
+\Gin@req@height=\dimen125
+\Gin@req@width=\dimen126
+)
+(./subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip53
+\subfigcapskip=\skip54
+\subfigcaptopadj=\dimen127
+\subfigbottomskip=\skip55
+\subfigcapmargin=\dimen128
+\subfiglabelskip=\skip56
+\c@subfigure=\count92
+\c@lofdepth=\count93
+\c@subtable=\count94
+\c@lotdepth=\count95
+\subfig@top=\skip57
+\subfig@bottom=\skip58
+)) (c:/w32tex/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip59
+
+For additional information on amsmath, use the `?' option.
+(c:/w32tex/share/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(c:/w32tex/share/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks20
+\ex@=\dimen129
+))
+(c:/w32tex/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen130
+)
+(c:/w32tex/share/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count96
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count97
+\leftroot@=\count98
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count99
+\DOTSCASE@=\count100
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box44
+\strutbox@=\box45
+\big@size=\dimen131
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+\macc@depth=\count101
+\c@MaxMatrixCols=\count102
+\dotsspace@=\muskip10
+\c@parentequation=\count103
+\dspbrk@lvl=\count104
+\tag@help=\toks21
+\row@=\count105
+\column@=\count106
+\maxfields@=\count107
+\andhelp@=\toks22
+\eqnshift@=\dimen132
+\alignsep@=\dimen133
+\tagshift@=\dimen134
+\tagwidth@=\dimen135
+\totwidth@=\dimen136
+\lineht@=\dimen137
+\@envbody=\toks23
+\multlinegap=\skip60
+\multlinetaggap=\skip61
+\mathdisplay@stack=\toks24
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+)
+(c:/w32tex/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(c:/w32tex/share/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(c:/w32tex/share/texmf-dist/tex/latex/tools/bm.sty
+Package: bm 2017/01/16 v1.2c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup7
+\symboldletters=\mathgroup8
+\symboldsymbols=\mathgroup9
+\symboldmincho=\mathgroup10
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 207.
+) (./cite.sty
+LaTeX Info: Redefining \cite on input line 302.
+LaTeX Info: Redefining \nocite on input line 373.
+Package: cite 2010/09/10  v 5.3
+) (./minitoc.sty
+Package: minitoc 2000/12/13 v34 Package minitoc, patched for hyperref
+*** minitoc package, version 34 ***
+*** patched for hyperref ***
+*** part level macros available ***
+*** chapter level macros available ***
+\tf@mtc=\write4
+*** Autoconfiguration of extensions ***
+\openout4 = `main.mtc1'.
+
+\openout4 = `main.mtc'.
+
+(./main.mtc1)
+\openout4 = `main.mtc'.
+
+\openout4 = `main.mtc1'.
+
+
+*** Long extensions (Unix-like) will be used ***
+==> this version is configured for UNIX-like (long extensions) file names.
+\mtc@toks=\toks25
+\mtc@strutbox=\box46
+\c@mtc=\count108
+\c@minitocdepth=\count109
+\mtcindent=\skip62
+\c@ptc=\count110
+\c@parttocdepth=\count111
+\ptcindent=\skip63
+(./english.mld
+File: english.mld 1999/03/16
+)) (c:/w32tex/share/texmf-dist/tex/latex/tools/hhline.sty
+Package: hhline 2014/10/28 v2.03 Table rule package (DPC)
+)
+(c:/w32tex/share/texmf-dist/tex/latex/slashbox/slashbox.sty
+slashbox style by K.Yasuoka, May 1993.
+\@slashboxa=\box47
+\@slashboxb=\box48
+\@slashboxc=\box49
+\@slashboxwd=\count112
+\@slashboxht=\count113
+\@slashsepl=\dimen138
+\@slashsepr=\dimen139
+) (c:/w32tex/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+Package: booktabs 2016/04/27 v1.618033 publication quality tables
+\heavyrulewidth=\dimen140
+\lightrulewidth=\dimen141
+\cmidrulewidth=\dimen142
+\belowrulesep=\dimen143
+\belowbottomsep=\dimen144
+\aboverulesep=\dimen145
+\abovetopsep=\dimen146
+\cmidrulesep=\dimen147
+\cmidrulekern=\dimen148
+\defaultaddspace=\dimen149
+\@cmidla=\count114
+\@cmidlb=\count115
+\@aboverulesep=\dimen150
+\@belowrulesep=\dimen151
+\@thisruleclass=\count116
+\@lastruleclass=\count117
+\@thisrulewidth=\dimen152
+)
+(c:/w32tex/share/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(c:/w32tex/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: dvipdfmx.def on input line 147.
+
+(c:/w32tex/share/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+))
+(c:/w32tex/share/texmf-dist/tex/latex/comment/comment.sty
+\CommentStream=\write5
+
+Excluding comment 'comment')
+(c:/w32tex/share/texmf-dist/tex/latex/ulem/ulem.sty
+\UL@box=\box50
+\UL@hyphenbox=\box51
+\UL@skip=\skip64
+\UL@hook=\toks26
+\UL@height=\dimen153
+\UL@pe=\count118
+\UL@pixel=\dimen154
+\ULC@box=\box52
+Package: ulem 2011/03/18
+\ULdepth=\dimen155
+)
+(c:/w32tex/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (./algorithm.sty
+Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
+nment
+
+(c:/w32tex/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count119
+\float@exts=\toks27
+\float@box=\box53
+\@float@everytoks=\toks28
+\@floatcapt=\box54
+)
+(c:/w32tex/share/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\@float@every@algorithm=\toks29
+\c@algorithm=\count120
+) (./algorithmic.sty
+Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
+\c@ALC@unique=\count121
+\c@ALC@line=\count122
+\c@ALC@rem=\count123
+\c@ALC@depth=\count124
+\ALC@tlm=\skip65
+\algorithmicindent=\skip66
+)
+(c:/w32tex/share/texmf-dist/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup11
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 52.
+)
+(c:/w32tex/share/texmf-dist/tex/latex/ascmac/ascmac.sty
+Package: ascmac 2018/03/09 v2.0h ascmac wrapper (community edition) 
+
+(c:/w32tex/share/texmf-dist/tex/latex/ascmac/tascmac.sty
+Package: tascmac 2018/03/09 v2.0h ascmac package (community edition) 
+\@savetbaselineshift=\dimen156
+\@saveybaselineshift=\dimen157
+\scb@x=\box55
+\scscb@x=\box56
+\@bw=\dimen158
+\@nbox=\box57
+\@nbody=\box58
+\@scw=\dimen159
+\ascmac@hoboxa=\box59
+\ascmac@hoboxb=\box60
+\@itemh=\dimen160
+\@iboxpos=\toks30
+\@iboxstr=\box61
+\@bwsp=\box62
+\@@bwsp=\box63
+\@bcal=\count125
+\shaderule=\dimen161
+))
+(c:/w32tex/share/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+
+(c:/w32tex/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(c:/w32tex/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen162
+\captionmargin@=\dimen163
+\captionwidth=\dimen164
+\caption@tempdima=\dimen165
+\caption@indent=\dimen166
+\caption@parindent=\dimen167
+\caption@hangindent=\dimen168
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+)
+
+Package caption Warning: Unsupported document class (or package) detected,
+(caption)                usage of the caption package is not recommended.
+See the caption package documentation for explanation.
+
+Package caption Info: \@makecaption = \long macro:#1#2->{\small \advance \lefts
+kip .0628\linewidth \advance \rightskip .0628\linewidth \vskip \abovecaptionski
+p \sbox \@tempboxa {#1\hskip 1zw\relax #2}\ifdim \wd \@tempboxa <\hsize \center
+ing \fi #1\hskip 1zw\relax #2\par \vskip \belowcaptionskip }.
+\c@ContinuedFloat=\count126
+Package caption Info: float package is loaded.
+Package caption Info: subfigure package is loaded.
+)
+\c@KVtest=\count127
+\sf@farskip=\skip67
+\sf@captopadj=\dimen169
+\sf@capskip=\skip68
+\sf@nearskip=\skip69
+\sf@top=\skip70
+\sf@bottom=\skip71
+) (./xbmkanji.sty
+\@xbmspacebox=\box64
+\@xbmwidth=\skip72
+\@xbmheight=\skip73
+\@asciibmcount=\count128
+\@asciibmpack=\count129
+\@asciibmwidth=\count130
+\@asciibmheight=\count131
+
+xbmkanji.sty for ASCII-pLaTeX by Koichi Yasuoka, July 1997.
+) (./main.aux
+
+LaTeX Warning: Label `eq:optim2' multiply defined.
+
+
+LaTeX Warning: Label `eq:optim2' multiply defined.
+
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for JY1/mc/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for JT1/mc/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+ (I search kanjifont definition file: . . ) (I search font definition file: .
+. . . . . . )
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 65.
+ (c:/w32tex/share/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+
+PREPARING MINITOCS FROM main.toc
+\openout4 = `main.bmt'.
+
+\openout4 = `main.bmt'.
+
+\openout4 = `main.bmt'.
+
+Writing main.mtc1
+\openout4 = `main.mtc1'.
+
+Writing main.mtc2
+\openout4 = `main.mtc2'.
+
+Writing main.mtc3
+\openout4 = `main.mtc3'.
+
+Writing main.mtc4
+\openout4 = `main.mtc4'.
+
+Writing main.mtc5
+\openout4 = `main.mtc5'.
+
+Writing main.mtc6
+\openout4 = `main.mtc6'.
+
+Writing main.mtc7
+\openout4 = `main.mtc7'.
+
+\openout4 = `main.bmt'.
+
+Writing main.mtc8
+\openout4 = `main.mtc8'.
+
+\openout4 = `main.bmt'.
+
+Writing main.mtc9
+\openout4 = `main.mtc9'.
+
+\openout4 = `main.bmt'.
+
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 68.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <10> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 9.60999pt on input line 68.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 68.
+File: utlogo.eps Graphic file (type eps)
+<utlogo.eps>
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 68.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <17.28> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 16.60605pt on input line 68.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 68.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 68.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 68.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 68.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 68.
+[1
+
+] [2
+
+]
+LaTeX Font Info:    Try loading font information for T1+phv on input line 76.
+ (c:/w32tex/share/texmf-dist/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 76.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 76.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 76.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 23.90964pt on input line 76.
+ (./main.toc
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 4.805pt on input line 5.
+LaTeX Font Info:    Try loading font information for U+msa on input line 5.
+
+(c:/w32tex/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 5.
+
+(c:/w32tex/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 6.72699pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 4.805pt on input line 5.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 5.
+
+(c:/w32tex/share/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+) [1
+
+
+])
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+ [2] (./main.lof
+[3
+
+])
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+ [4] (./main.lot)
+\tf@lot=\write8
+\openout8 = `main.lot'.
+
+ [5
+
+] [6
+
+] (./chap1/chap1.tex
+第1章
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 1.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 1.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 19.9311pt on input line 1.
+LaTeX Font Info:    Font shape `JT1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/mc/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 5.76599pt on input line 5.
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 5.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <12> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 11.53198pt on input line 5.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 7.68799pt on input line 5.
+(./main.mtc1
+LaTeX Font Info:    Font shape `JT1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JT1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 1.
+LaTeX Font Info:    Font shape `JY1/mc/bx/n' in size <9> not available
+(Font)              Font shape `JY1/gt/m/n' tried instead on input line 1.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 8.64899pt on input line 1.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
+) [1
+
+]
+LaTeX Font Info:    Font shape `JT1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 12.
+LaTeX Font Info:    Font shape `JY1/gt/m/n' will be
+(Font)              scaled to size 13.83836pt on input line 12.
+ [2]
+File: ./chap1/fig/全方位.jpg Graphic file (type bmp)
+<./chap1/fig/全方位.jpg>
+File: ./chap1/fig/全天球.jpg Graphic file (type bmp)
+<./chap1/fig/全天球.jpg>
+ [3] [4
+
+] [5] [6
+
+]
+File: ./chap1/fig/structure.png Graphic file (type bmp)
+<./chap1/fig/structure.png>
+ [7
+
+]) (./chap2/chap2.tex [8
+
+
+]
+第2章
+(./main.mtc2) [9] [10]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 48.
+ (c:/w32tex/share/texmf-dist/tex/latex/psnfss/omsptm.fd
+File: omsptm.fd 
+)
+LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 48.
+
+[11
+
+]
+File: ./chap2/fig/flow2.png Graphic file (type bmp)
+<./chap2/fig/flow2.png>
+ [12
+
+] [13] [14
+
+]
+File: ./chap2/fig/manhattan.png Graphic file (type bmp)
+<./chap2/fig/manhattan.png>
+ [15]
+File: ./chap2/fig/descriptor.png Graphic file (type bmp)
+<./chap2/fig/descriptor.png>
+ [16] [17
+
+]) (./chap3/chap3.tex [18
+
+
+]
+第3章
+(./main.mtc3) [19] [20]
+File: ./chap3/fig/orientation.png Graphic file (type bmp)
+<./chap3/fig/orientation.png>
+ [21]
+File: ./chap3/fig/spherical_gradient.png Graphic file (type bmp)
+<./chap3/fig/spherical_gradient.png>
+File: ./chap3/fig/three_directions.png Graphic file (type bmp)
+<./chap3/fig/three_directions.png>
+File: ./chap3/fig/flow3.png Graphic file (type bmp)
+<./chap3/fig/flow3.png>
+ [22] [23]
+File: ./chap3/fig/stretch.png Graphic file (type bmp)
+<./chap3/fig/stretch.png>
+ [24
+
+]
+File: ./chap3/fig/calcgrad.png Graphic file (type bmp)
+<./chap3/fig/calcgrad.png>
+ [25]
+File: ./chap3/fig/frame00106.png Graphic file (type bmp)
+<./chap3/fig/frame00106.png>
+File: ./chap3/fig/edge_106.png Graphic file (type bmp)
+<./chap3/fig/edge_106.png>
+File: ./chap3/fig/conversion.png Graphic file (type bmp)
+<./chap3/fig/conversion.png>
+ [26]
+File: ./chap3/fig/gradient1.png Graphic file (type bmp)
+<./chap3/fig/gradient1.png>
+File: ./chap3/fig/gradient2.png Graphic file (type bmp)
+<./chap3/fig/gradient2.png>
+ [27] [28]
+File: ./chap3/fig/four_orientation.png Graphic file (type bmp)
+<./chap3/fig/four_orientation.png>
+ [29
+
+] [30])
+(./chap4/chap4.tex [31
+
+] [32
+
+]
+第4章
+(./main.mtc4) [33] [34]
+File: ./chap4/fig/derotation.png Graphic file (type bmp)
+<./chap4/fig/derotation.png>
+File: ./chap4/fig/feature_x.png Graphic file (type bmp)
+<./chap4/fig/feature_x.png>
+ [35
+
+]
+File: ./chap4/fig/feature_y.png Graphic file (type bmp)
+<./chap4/fig/feature_y.png>
+ [36]
+File: ./chap4/fig/feature_z.png Graphic file (type bmp)
+<./chap4/fig/feature_z.png>
+File: ./chap4/fig/flow4.png Graphic file (type bmp)
+<./chap4/fig/flow4.png>
+ [37
+
+] [38]
+File: ./chap4/fig/edge_inlier.png Graphic file (type bmp)
+<./chap4/fig/edge_inlier.png>
+ [39
+
+]
+File: ./chap4/fig/feature_xy.png Graphic file (type bmp)
+<./chap4/fig/feature_xy.png>
+ [40
+
+]
+File: ./chap4/fig/rotated_edge.png Graphic file (type bmp)
+<./chap4/fig/rotated_edge.png>
+File: ./chap4/fig/feature_xz.png Graphic file (type bmp)
+<./chap4/fig/feature_xz.png>
+ [41
+
+] [42]
+File: ./chap4/fig/search_xy.png Graphic file (type bmp)
+<./chap4/fig/search_xy.png>
+ [43
+
+] [44]
+File: ./chap4/fig/search_xz.png Graphic file (type bmp)
+<./chap4/fig/search_xz.png>
+
+[45
+
+] [46
+
+]) (./chap5/chap5.tex
+第5章
+(./main.mtc5) [47
+
+
+] [48] [49
+
+]
+File: ./chap5/fig/blender_room_2.png Graphic file (type bmp)
+<./chap5/fig/blender_room_2.png>
+File: ./chap5/fig/linemap.png Graphic file (type bmp)
+<./chap5/fig/linemap.png>
+File: ./chap5/fig/blurred_image.png Graphic file (type bmp)
+<./chap5/fig/blurred_image.png>
+ [50
+
+] [51] [52] [53
+
+]
+File: ./chap5/fig/result1.png Graphic file (type bmp)
+<./chap5/fig/result1.png>
+File: ./chap5/fig/result2.png Graphic file (type bmp)
+<./chap5/fig/result2.png>
+ [54
+
+] [55]
+File: ./chap5/fig/1.jpg Graphic file (type bmp)
+<./chap5/fig/1.jpg>
+File: ./chap5/fig/2.jpg Graphic file (type bmp)
+<./chap5/fig/2.jpg>
+File: ./chap5/fig/3.jpg Graphic file (type bmp)
+<./chap5/fig/3.jpg>
+File: ./chap5/fig/4.jpg Graphic file (type bmp)
+<./chap5/fig/4.jpg>
+File: ./chap5/fig/5.jpg Graphic file (type bmp)
+<./chap5/fig/5.jpg>
+ [56
+
+] [57] [58
+
+]
+[59
+
+]) (./chap6/chap6.tex [60
+
+]
+第6章
+(./main.mtc6) [61] [62] [63] [64]) (./Backmatter/Thank.tex [65
+
+
+] [66] [67])
+[68
+
+] (./main.bbl) (./ref.tex [69
+
+] [70] [71] [72] [73] [74] [75]
+Underfull \hbox (badness 10000) in paragraph at lines 372--376
+[] \T1/ptm/m/n/10 http://www.lg.com/us/mobile-accessories/lg-LGR105AVRZTS-360-c
+am/ (\JY1/mc/m/n/10 閲覧日
+ []
+
+[76] [77] [78]) [79] [80] (./Backmatter/Achieve.tex [81
+
+
+]) [82] (./main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5746 strings out of 493611
+ 76115 string characters out of 6149885
+ 147873 words of memory out of 5000000
+ 9088 multiletter control sequences out of 15000+600000
+ 60006 words of font info for 161 fonts, out of 8000000 for 9000
+ 934 hyphenation exceptions out of 8191
+ 44i,12n,45p,396b,461s stack positions out of 5000i,500n,10000p,500000b,80000s
+
+Output written on main.dvi (90 pages, 212744 bytes).

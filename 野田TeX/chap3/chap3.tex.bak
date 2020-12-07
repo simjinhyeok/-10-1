@@ -1,0 +1,335 @@
+
+\chapter{人間の移動経路予測システム}
+\thispagestyle{empty}
+\label{chap3}
+\minitoc
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{はじめに}
+\ref{chap2}章にて，人間の移動経路予測に必要な人間の移動傾向データベースの生成について述べた．
+本章においては，この移動傾向データベースを利用した，環境からの影響を反映した人間の移動経路を予測するアルゴリズムについて述べる．\\
+
+まず，\ref{zentei}節において，予測アルゴリズムを提案するうえでの前提について述べる．
+その後，\ref{gaiyo}節においてアルゴリズムの概要を説明し，\ref{syo-sai}節にて提案アルゴリズムについての詳細を述べる．
+
+
+
+\clearpage
+\newpage
+
+\section{予測アルゴリズムの前提}
+\label{zentei}
+本研究で予測アルゴリズムを提案する上で，人間の歩行について以下のような前提を設定する．\\
+
+\begin{enumerate}
+\item[前提1] ：人間の歩行は環境の影響を受ける\\
+今まで述べてきたように，人間の歩行は常に環境からの影響を受けている．
+例えば，``通路の形状に沿って進む'' ，``ポスターの前で立ち止まる'' などというように，人間の歩行は周囲の環境によって変化する．\\
+
+\item[前提2] ：人間の歩行速度は，短時間で大きく変化しない\\
+人間が歩く速さや方向は，短時間では大きく変化しない．
+例えば，唐突に歩行者が左右にステップを踏むなどといった不規則な動きについては本研究では対象としない．
+ただし，一定であるというわけではなく，時間が経てば小さな変化の蓄積によって大きく異なる移動ベクトルとなることはあり得る．\\
+
+\end{enumerate}
+\clearpage
+\newpage
+
+
+\section{予測アルゴリズムの概要}
+\label{gaiyo}
+まず，得られた観測データを基に，人間の現在位置と現在の速度を抽出する.
+この時，測定誤差を考慮に入れるため，観測された現在位置からパーティクル群を生成する.
+\ref{syori} 項にて説明する．
+\\
+
+提案するアルゴリズムにおいては，この後一定間隔$\Delta t$に基づいて逐次的な予測を展開していく．
+それぞれのパーティクルについて，新たに次の予測ステップにおける速度を生成する.
+前提$2$より，ここで生成される次のステップの速度は，前のステップの速度と大きく異ならない.
+この速度の生成については，\ref{sinko} 項にて説明する\\
+
+より正確な予測を実現するため，環境からの影響を考慮に入れ，生成した移動ベクトルに補正をくわえる.
+環境からの影響による補正については，\ref{hosei} 項にて説明する．
+こうして得られた速度を基に，パーティクルを移動させる.\\
+
+このパーティクルの移動を繰り返すことでパーティクルを進行させ，得られたパーティクルの分布を将来人間が存在する位置と予測する.
+観測座標や，予測されたパーティクル位置分布が持つ座標はあくまでも人間の重心の位置を表したものである．
+そのため，各パーティクルを中心に円を描き，その円の中を予測される人間の存在領域とすることとした．
+こうして予測される人間の存在領域を，以下では予測領域と呼ぶこととする．
+\\
+
+アルゴリズムの概要をフローチャートにしたものを図\ref{gaiyochart}に示す.
+
+
+\begin{figure}[h]
+\begin{center}
+%%\includegraphics[width=\linewidth]{./chap1/samed.eps}
+\includegraphics[width=10cm]{./chap3/gaiyochart.eps}
+\end{center}
+\caption{アルゴリズムの概要}
+\label{gaiyochart}
+\end{figure}
+
+\clearpage
+\newpage
+
+\section{予測アルゴリズムの詳細}
+\label{syo-sai}
+\subsection{観測データの処理}
+\label{syori}
+実際に人間の移動経路予測をする際，基礎となるのは環境などに設置されたセンサによって計測された人間の観測データである．
+よって，現時点で観測データを基に，アルゴリズムの基礎となるデータを生成する．
+\ref{zentei}節で述べたように，人間の位置を同定し追跡するセンサには様々なものがあるが，どのセンサを用いたとしてもセンサから得られる情報には誤差が存在する．
+観測によって人間の重心位置，速度は一意に測定することが出来るが，その値については常に測定誤差を考慮に入れなければならない．
+特に，速度の誤差が大きい場合，予測結果が大きくかわってしまう．\\
+
+まず，観測された人間の重心位置を基に、2次元正規分布に従って$N$個のパーティクルを生成する．
+パーティクル生成に用いた2次元正規分布の式を(\ref{jigenseiki})に示す．
+
+
+\begin{equation}
+P(x,y)=\frac{1}{2\pi \sigma_{x} \sigma_{y}} \exp \left( -\frac{1}{2} \left( \frac{  \left( x - x_{o} \right)^{2} }{ \sigma_{x}^{2}  } + \frac{  \left( y - y_{o} \right)^{2} }{ \sigma_{y}^{2}  }  \right)  \right)
+\label{jigenseiki}
+\end{equation} 
+
+\[
+\begin{cases}
+ x_{o} & \text{：観測された重心位置のx座標}\\
+ y_{o} & \text{：観測された重心位置のy座標}\\
+ \sigma_{x} & \text{：x軸方向の標準偏差}\\
+ \sigma_{y} & \text{：y軸方向の標準偏差}\\
+\end{cases}
+\]
+
+
+
+
+このパーティクルは，人間の位置分布をあらわす．
+この工程によって，観測座標の誤差を考慮にいれ，今後の確率的な移動予測の基となる位置分布を得ることが出来る．
+図\ref{kihonpart} に，一例として$N=5$の時のパーティクル生成の図を表す．
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=10cm]{chap3/argfig1.eps}
+\end{center}
+ \caption{パーティクルの生成}
+ \label{kihonpart}
+\end{figure}
+
+
+次に，速度に関する誤差を低減するため，観測された人間の位置座標から予測の基礎となる速度 $\boldsymbol{v}_{B}$を生成する．
+この予測の基礎となる速度を，基本速度と以降呼称する．
+基本速度を，単純に1ステップ前に計測された際の重心座標から減算で求めてしまっては、測定誤差が大きく影響してしまう．
+そのため、過去$t_B$秒間に観測された人間の座標より，最小二乗法を用いて$\boldsymbol{v}_{B}$を抽出する．
+図\ref{basicvelocity} に，速度抽出の概念図を表す．
+図中 $( x_{0},y_{0} )$ ，…，$( x_{-5},y_{-5} )$ が過去$t_B$秒間に得られた人間の座標である．
+
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=10cm]{chap3/BasicVelocity.eps}
+\end{center}
+ \caption{基本速度}
+ \label{basicvelocity}
+\end{figure}
+
+
+図\ref{basicvelocity} 中の直線(\ref{siki})は式(\ref{sikia}),(\ref{sikib}),(\ref{sikic})から導き出される．
+$( x_{s_{0}},y_{s_{0}} )$ ,$( x_{s_{-5}},y_{s_{-5}} )$は$( x_{0},y_{0} )$ ， $( x_{-5},y_{-5} )$から直線への垂線の足である．
+
+\begin{equation}
+ax + by +c =0
+\label{siki}
+\end{equation}
+\begin{equation}
+a=\sum \limits_{k=0}^{n} x_{-k} y_{-k} - \sum\limits_{k=0}^{n} x_{-k} \sum\limits_{k=0}^{n} y_{-k}
+\label{sikia}
+\end{equation} 
+
+\begin{equation}
+b = \left( \sum\limits_{k=0}^{n} x_{-k} \right) ^2 - n \sum\limits_{k=0}^{n} x_{-k}^2
+\label{sikib}
+\end{equation}
+
+\begin{equation}
+c=\sum\limits_{k=0}^{n} x_{-k} \sum\limits_{k=0}^{n} y_{-k} - \sum\limits_{k=0}^{n} x_{-k} y_{-k} \sum\limits_{k=0}^{n} y_{-k}
+\label{sikic}
+\end{equation}
+
+長い直線は$\boldsymbol{v}_{B}$ の角度成分を表す．
+$\boldsymbol{v}_{B}$は式 (\ref{b_v}) によって求められる．
+$\boldsymbol{r}_{s_{0}}$ 及び$\boldsymbol{r}_{s_{n}}$ は，基本速度を求める際に用いた垂線の足のうち，最新と最古の位置座標を表し，$t_{0}$，$t_{n}$はその時の観測時刻を表す．
+
+\begin{equation}
+\boldsymbol{v}_{B}=\frac{\boldsymbol{r}_{s_{0}}-\boldsymbol{r}_{s_{n}}}   {t_{0}  - t_{n}}
+\label{b_v}
+\end{equation}
+
+基本速度$\boldsymbol{v}_{B}$ はシステムが予測を開始する時点におけるパーティクル群の持つ速度として扱われる．
+
+\clearpage
+\newpage
+
+\subsection{パーティクルの進行}
+\label{sinko}
+\ref{syori} 項にて，予測開始時点での人間を表すパーティクルが生成された．
+提案するアルゴリズムにおいては，この後一定間隔$\Delta t$に基づいて逐次的な予測を展開していく．
+さて，ここである時点$t_{m}$におけるパーティクルについて議論する．
+ここで，$t_{m+1} = t_{m} + \Delta t$におけるパーティクルの速度を予測する必要がある． 
+前提$2$より，$t_{m+1}$におけるパーティクルのもつ速度は，ステップ$t_{m}$における速度と大きく違わないということができる.
+
+よって，$t_{m}$における速度を基準として，$t_{m+1}$における速度を予測することとする.
+
+$t_{m}$における速度から，ノルム成分と角度成分それぞれについて以下のような正規分布に従って生成された乱数によりランダムな速度を生成する.
+
+
+\begin{equation}
+P_{1}(r_{m})=\frac{1}{\sqrt{2\pi}\sigma_{r}}\exp (\frac{-(r'_{m}-r_{m})^{2}}{2\sigma_{r}^{2}})
+\end{equation} 
+
+
+\begin{equation}
+P_{2}(\theta_{m} )=\frac{1}{\sqrt{2\pi}\sigma_{\theta}}\exp (\frac{-(\theta'_{m} -\theta_{m})^{2}}{2\sigma_{\theta}^{2}})
+\end{equation} 
+
+
+\[
+\begin{cases}
+ r'_{m} & \text{：生成された派生速度のノルム成分}\\
+ r_{m} & \text{：$t_{m}$における速度のノルム成分} \\
+ \sigma_{r} & \text{：ノルム成分の標準偏差} \\
+ \theta'_{m} & \text{：生成された派生速度の角度成分}\\
+ \theta_{m} & \text{：$t_{m}$における速度の角度成分} \\
+ \sigma_{\theta} & \text{：角度成分の標準偏差}
+\end{cases}
+\]
+\\
+
+このようにしてできた速度$\boldsymbol{v'}_{m}$を，以下では派生速度と呼ぶこととする.
+派生速度の生成の概念図を，図\ref{haseifig} に示す.\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=10cm]{./chap3/hasei.eps}
+\end{center}
+\caption[派生移動ベクトルの生成]{派生移動ベクトルの生成}
+\label{haseifig}
+\end{figure}
+%
+
+
+
+\clearpage
+\newpage
+\subsection{環境からの影響}
+\label{hosei}
+前提$1$より，人間の歩行は環境の影響を受け，人間の経路予測アルゴリズムはその環境からの影響を考慮に入れなければならない．
+そこで，\ref{sinko} 項で生成した派生速度に，環境が人間の歩行に与える影響を基に補正を加えることとする．
+
+
+環境が人間に与える影響として，\ref{chap2} 章にて得た移動傾向データベースを用いる．
+移動傾向データベースには，式(\ref{cmn2})に示すようなデータが蓄積されている．
+
+\begin{equation}
+C_{pq} = \{ \boldsymbol{I}_{j} , \boldsymbol{v}_{j}| 0<j\leq {\it J}, j \in {\bf Z}\}
+\label{cmn2}
+\end{equation}
+%\ref{database}で生成されたデータベースに蓄積された力積のうち一つの影響を受け、速度が変化する
+%ある力積が選ばれる確率は式（）式（）によって選ばれる
+
+派生速度は，データベースに蓄積された力積のうち1つに影響を受け，その速度が変化する．
+データベースの中のどの力積が選択されるかについては，式(\ref{kakuritu})，(\ref{kakuritu2})に従う．
+データベース中のそれぞれのデータに対し，$t_{m}$時点のパーティクル速度$\boldsymbol{v}_{m}$を基準とした2次元ガウス分布による重みを与える． 
+その後，正規化することで重みつき確率$P_{j}$を得る．
+結果として，データベース内に記録されているデータのうち，$\boldsymbol{v}_{m}$に近い速度を持つデータがより高い確率で選ばれる事となる．
+
+\begin{equation}
+P_{j} = \frac{K_{j}}{  \sum\limits^{J}_{l=1} K_{l} }
+\label{kakuritu}
+\end{equation}
+\begin{equation}
+K_{j} = \frac{1}{2 \pi \sigma_{r_{2}} \sigma_{\theta_{2}}  } \exp \left( - \frac{1}{2} \left(  \frac{ (  \theta_{j} -  \theta_{m} ) }{ \sigma_{\theta_{2}}^{2} } +  \frac{ (  r_{j} - r_{m} ) }{ \sigma_{r_{2}}^{2} } \right)  \right)
+\label{kakuritu2}
+\end{equation}
+
+
+\[
+\begin{cases}
+ P_{j} & \text{：データベース内のあるデータ$j$が選択される重みつき確率}\\
+ K_{j} & \text{：データベース内のあるデータ$j$に与えられる重み}\\
+ r_{m} & \text{：$t_{m}$におけるパーティクル速度のノルム成分} \\
+ \theta_{m} & \text{：$t_{m}$におけるパーティクル速度の角度成分} \\
+ r_{j} & \text{：データベース内のデータ$j$に含まれる速度のノルム成分} \\
+ \theta_{j} & \text{：データベース内のデータ$j$に含まれる速度の角度成分} \\
+ \sigma_{r_{2}} & \text{：ノルム成分の標準偏差} \\
+ \sigma_{\theta_{2}} & \text{：角度成分の標準偏差}
+\end{cases}
+\]
+\\
+
+以上の式によって生成された力積によって，式(\ref{fin})に従って派生速度に補正を加える．
+\begin{equation}
+M\boldsymbol{v}_{m+1} = M\boldsymbol{v'}_{m} + \boldsymbol{I}
+\label{fin}
+\end{equation}
+派生速度に環境からの影響による補正をくわえる概念図を，図\ref{hoseifig} に示す.\\
+
+\begin{figure}[htb]
+\begin{center}
+\includegraphics[width=10cm]{./chap3/hosei.eps}
+\end{center}
+\caption[速度の補正]{速度の補正}
+\label{hoseifig}
+\end{figure}
+%
+
+こうして予測された速度$\boldsymbol{v}_{m+1}$によって，式(\ref{hun})に従って次のステップのパーティクルの座標を予測する．
+\begin{equation}
+\boldsymbol{r}_{m+1}= \boldsymbol{r}_{m} +  \boldsymbol{v}_{m+1} \Delta t
+\label{hun}
+\end{equation}
+
+
+
+\clearpage
+\newpage
+\subsection{アルゴリズムのまとめ}
+図\ref{flowchart} に，アルゴリズムの詳細を表すフローチャートを示す．\\
+
+入力として，環境センサから得られた人間の観測データを与える．
+得られた観測データを基準としてパーティクル群を生成し，観測時点における人間の速度（基本速度）を抽出する．
+その後，目的とする予測時間に達するまで，$\Delta t$の間隔で以下の工程を繰り返す．\\
+
+
+ある時点$t_{m}$のパーティクル速度$\boldsymbol{v}_{m} $を基準とし，派生速度$\boldsymbol{v'}_{m} $を生成する．
+その後，環境が人間の歩行に与える影響を考慮に入れるため，データベースに含まれる移動傾向（力積）のうち1つにより補正を加える．
+補正が加わった速度を最終的に予測された速度$\boldsymbol{v}_{m+1} $として，パーティクルを$\Delta t$の間進行させる．\\
+
+
+この工程を予測時間まで繰り返すことで最終的に得られたパーティクル群を，その時間に予測される人間の位置分布とする．
+
+\begin{figure}[!h]
+\begin{center}
+\includegraphics[width=8cm]{chap3/flowchart.eps}
+\end{center}
+ \caption{アルゴリズムの詳細}
+ \label{flowchart}
+\end{figure}
+
+\clearpage
+\newpage
+\section{おわりに}
+本章においては，人間の移動経路予測アルゴリズムについて述べた．\\
+
+\ref{chap2}章にて生成された，環境が人間の移動に与える影響を表す移動傾向データベースを利用し，環境の特徴を反映した人間の移動予測を提案した．
+\ref{chap4}章にて，\ref{chap2}，\ref{chap3}章に提案した手法についての検証を行う．
+
+
+\clearpage
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Local Variables:
+%%% mode: katex
+%%% TeX-master: "../thesis"
+%%% End:

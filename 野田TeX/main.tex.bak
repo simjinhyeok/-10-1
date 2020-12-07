@@ -1,0 +1,65 @@
+\documentclass[12pt]{jsbook}
+\usepackage{pethesis}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{subfigure}
+\usepackage{minitoc}
+\usepackage{hhline}
+\usepackage{slashbox}
+\usepackage{booktabs}
+%
+% 論文の表紙の項目
+%
+\thesistype{平成23年度 修士論文}
+\title{環境に対応した人間の移動経路予測を用いた\\
+移動ロボットの人物回避}
+\etitle{ Collision Avoidance of Mobile Robot\\
+with Prediction of Human's Movement }
+\affiliation{東京大学 工学系研究科 精密工学専攻}
+\supervisor{淺間 一 教授}
+\studentid{37-106287}
+\author{濱崎峻資}
+\begin{document}
+\dominitoc
+%表紙
+\maketitle
+%概要
+\thispagestyle{empty}
+\input{./Frontmatter/abst}
+
+\frontmatter
+%目次
+\tableofcontents
+%図目次
+\listoffigures
+%表目次
+\listoftables
+
+%
+%以下本文
+\mainmatter
+\input{./chap1/chap1}
+\input{./chap2/chap2}
+\input{./chap3/chap3}
+\input{./chap4/chap4}
+\input{./chap5/chap5}
+
+%
+%謝辞
+%%\input{./Backmatter/Thank}
+\addcontentsline{toc}{chapter}{謝辞}
+%
+%参考文献
+\bibliographystyle{junsrt}
+\bibliography{ref}
+%
+
+\input{./ref}
+%
+%付録
+\appendix
+%%\input{./Appendix/data_table}
+\cleardoublepage
+%
+% 論文の最後
+%
+\end{document}

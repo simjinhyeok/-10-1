@@ -1,0 +1,12 @@
+[main]
+.\main.tex
+
+[texfiles]
+.\chap1\chap1.tex
+.\chap2\chap2.tex
+.\chap3\chap3.tex
+.\chap4\chap4.tex
+.\chap5\chap5.tex
+.\Frontmatter\abst.tex
+.\ref.tex
+

@@ -1,0 +1,301 @@
+\chapter*{参考文献}
+\addcontentsline{toc}{chapter}{参考文献}
+\lhead[参考文献]{}
+\renewcommand{\refname}{引用文献}
+\thispagestyle{empty}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+\subsection*{＜和文文献＞}
+
+\bibitem[荒蒔 2001]{robotsensa3}					%robot sensor
+\leavevmode \\荒蒔 勲, 佐生 徳実, 梅田 和昇:
+\newblock ``小型距離画像センサを用いた移動ロボットの障害物回避手法の提案.''
+\newblock Proceedings of the JSME Conference on Robotics and Mechatronics（ROBOMEC）, pp. 1P1-N4, 2001.
+%\\
+
+\bibitem[加賀美 2007]{yosobunrui}			%prediction
+\leavevmode \\加賀美 聡, 堀内 崇弘, 鈴木 夢見子, トンプソン サイモン, カフナー ジェームズ:
+\newblock ``短・中期的な人間の歩行予測とそれを利用したロボットの経路計画.''
+\newblock ロボティクスシンポジア予稿集, Vol. 12, pp. 292-297, 2007.
+%\\
+
+\bibitem[景山 2002]{エンタテイメントロボット}		%需要
+\leavevmode \\影山 浩二, 石田 健蔵:
+\newblock ``エンタテイメントロボットビジネス.''
+\newblock 日本ロボット学会誌, Vol. 20, No. 7, pp. 8-11, 2002.
+%\\
+
+\bibitem[帷子 2007]{track6}			%トラッキング
+\leavevmode \\帷子 京市郎, 鈴木 智之, 中村 克行, 趙 卉菁, 柴崎 亮介, 仲川 ゆり:
+\newblock ``レーザスキャナを用いた群衆の追跡および流動の可視化''
+\newblock 情報処理学会研究報告, Vol. 2007, No. 31, pp. 229-236, 2007.
+%\\
+
+\bibitem[河内 2006]{sunpo}			%人寸法
+\leavevmode \\河内 まき子, 持丸 正明:
+\newblock ``AIST/HQL人体寸法・形状データベース2003.''
+\newblock 産業技術総合研究所, H18PRO-503, 2006.
+%\\
+
+\bibitem[神田 2002]{コミュニケーションロボット}		%需要
+\leavevmode \\神田 崇行, 石黒 浩, 小野 哲雄, 今井 倫太, 前田 武志, 中津 良平:
+\newblock ``研究用プラットホームとしての日常活動型ロボット``Roovie''の開発.''
+\newblock 電子情報通信学会論文誌. D-I, 情報・システム, I-情報処理,  J85-D-I(4), pp. 380-389, 2002.
+%\\
+
+\bibitem[黒木 2009]{robotsensa4}					%robot sensor
+\leavevmode \\黒木 崇博, 寺林 賢司, 梅田 和昇:
+\newblock ``小型距離画像センサを用いた二足歩行ロボットの障害物検出および回避行動生成.''
+\newblock 映像情報メディア学会技術報告 33(34), pp. 47-48, 2009.
+%\\
+
+\bibitem[経済産業省 2010]{市場予測1}		%需要
+\leavevmode \\経済産業省，独立行政法人新エネルギー・産業技術総合開発機構（NEDO）:
+\newblock ``2035年までのロボット産業の将来市場予測.''
+\newblock 2010.
+%\\
+
+\bibitem[近藤 2000] {voice_s}			%各種センサ
+\leavevmode \\近藤 慶介, 長井 隆行, 金子 正秀, 榑 松明:
+\newblock ``車載音声認識のための2次元MUSIC法を用いた話者位置推定.''
+\newblock 電子情報通信学会総合大会講演論文集, p. 128, 2000.
+%\\
+
+\bibitem[酒井 2005]{robotsensa6}					%robot sensor
+\leavevmode \\酒井 龍雄, 中嶋 久人, 西村 大輔, 上松 弘幸, 北野 幸彦:
+\newblock ``病院内搬送用自律移動ロボットシステム.''
+\newblock 松下電工技報,Vol53, No2, pp.62-67, 2005.
+%\\
+
+\bibitem[武野 1986]{old6}		%古い回避
+\leavevmode \\武野 純一, 柿倉 正義:
+\newblock ``移動ロボットの移動障害物に対する衝突回避問題について.''
+\newblock 日本ロボット学会誌, Vol.4, No. 5, pp. 499-503, 1986.
+%\\
+
+\bibitem[田所 1996]{yoso3}			%prediction
+\leavevmode \\田所 諭, 石川 裕, 武部 智全, 高森 年:
+\newblock ``人間と共存協調するロボットのための回避行動の生成（第1報,人間の運動の確率的予測とマニュレータの回避計画）.''
+\newblock 日本機械学会論文集（C編）, Vol. 62, No. 598, pp.2329-2336, 1996.
+%\\
+
+
+\bibitem[田所 1997]{yoso4}			%prediction
+\leavevmode \\田所 諭, 林 真樹, 真部 靖弘, 中見 至宏, 高森 年.
+\newblock ``人間と共存協調するロボットのための回避行動の生成（第2報,移動ロボットの移動障害物回避）.''
+\newblock 日本機械学会論文集（C編）, Vol. 63, No. 606, pp. 499-505, 1997.
+%\\
+
+\bibitem[日本ロボット工業会 2008]{市場予測2}		%需要
+\leavevmode \\日本ロボット工業会:
+\newblock ``ＲＴ（ロボットテクノロジー）による産業波及効果と市場分析に関する調査.''
+\newblock 2008.
+%\\
+
+\bibitem[野口 2011]{yoso8}			%prediction
+\leavevmode \\野口 博史, 山田 隆基, 森 武俊, 佐藤 知正:
+\newblock ``大量の人移動計測データに基づく移動ロボットの人回避経路計画.''
+\newblock 第29回日本ロボット学会学術講演会予稿集，pp. 2I2-7, 2011.
+%\\
+
+\bibitem[橋本 2004]{robotsensa5}					%robot sensor
+\leavevmode \\橋本祥一, 西山和人, 小島宏行, 松田一彦:
+\newblock ``複数の赤外線センサを用いた移動ロボットの障害物回避走行.''
+\newblock 日本機械学会関東支部ブロック合同講演会講演論文集2004, pp213-214, 2004.
+%\\
+
+\bibitem[向山 2007]{yoso2}			%prediction
+\leavevmode \\向山 将行, 伊藤 隆洋, 稲垣 伸吉, 鈴木 達也:
+\newblock ``複数予測モデルを持つパーティクルフィルタを用いた行動推定.''
+\newblock  Proceedings of the JSME Conference on Robotics and Mechatronics（ROBOMEC）, pp. 1A1-N08, 2007.
+%\\
+
+\bibitem[村上 2008]{envsen4}				%env_sensor
+\leavevmode \\村上 剛司, 長谷川 勉, 木室 義彦, 千田 陽介, 家永 貴史, 有田 大作, 倉爪 亮:
+\newblock ``情報構造化環境における情報管理の一手法.''
+\newblock 日本ロボット学会誌, Vol.26, No.2, pp.192-199, 2008.
+%\\
+
+\bibitem[村上 2002]{kaohouko}			%prediction
+\leavevmode \\村上 佳史, 久野 義徳, 島田 伸敬, 白井 良明:
+\newblock ``知的車椅子のための歩行者の顔の観察に基づく衝突回避.''
+\newblock 日本ロボット学会誌, Vol. 20, No. 2, pp. 206-213, 2002.
+%\\
+
+\bibitem[村北 2006]{track5}			%トラッキング
+\leavevmode \\村北 卓也, 石黒 浩:
+\newblock ``複数のカメラを用いたオクルージョンロバストな実時間複数人間追跡.''
+\newblock 電子情報通信学会技術研究報告, Vol. 106, No. 74, pp. 1-6, 2006.
+%\\
+
+\bibitem[山田 2007]{track1}			%トラッキング
+\leavevmode \\山田 弘幸, 倉爪 亮, 村上 剛司, 長谷川 勉:
+\newblock ``SIR/MCMCパーティクルフィルタを用いた複数カメラとレーザレンジファインダによる移動体のトラッキング.''
+\newblock 画像の認識理解シンポジウム（MIRU2007）, IS-5-19, 2007.
+%\\
+
+\clearpage
+
+\subsection*{＜英文文献＞}
+
+\bibitem[Asoh 2001]{コミュニケーションロボット3}		%需要
+\leavevmode \\H. Asoh, Y. Motomura, F. Asano, I. Hara, S. Hayamizu, K. Itou, T. Kurita, N. Vlassis and B. Kr\"{o}se:
+\newblock ``Jijo-2: An Office Robot that Communicates and Learns''
+\newblock IEEE Intelligent Systems, Vol. 16, No. 5, pp. 46-55, 2001.
+%\\
+
+\bibitem[Bahl 2000]{lan_s}			%各種センサ
+\leavevmode \\P.Bahl, V.Padmanabhan and A. Balachandran:
+\newblock ``Enhancements to the RADAR User Location and Tracking System.''
+\newblock Microsoft Research Technical Report, 2000.
+%\\
+
+\bibitem[Brooks 1986]{old5}		%古い回避
+\leavevmode \\R. A. Brooks:
+\newblock ``A Robust Layered Control System for a Mobile Robot.''
+\newblock IEEE Journal of Robotics and Automation, Vol.2, pp. 14-23, 1986.
+%\\
+
+\bibitem[Burgard 1999]{案内ロボット}		%需要
+\leavevmode \\W. Burgard, A. B. Cremers, D. Fox, D. H\"{a}hnel, G. Lakemeyer, D. Schulz, W. Steiner and S. Thrun:
+\newblock ``Experiences with an Interactive Museum Tour-Guide Robot.''
+\newblock Artificial Intelligence, Vol. 114, No. 1-2, pp. 3-56, 1999.
+%\\
+
+\bibitem[Connolly 1990]{old2}		%古い回避
+\leavevmode \\C. Connolly, R. Weiss, and J. Burns:
+\newblock ``Path Planning Using Laplace's Equation.''
+\newblock IEEE International Conference on Robotics and Automation, Vol. 3. pp. 2102-2106, 1990.
+%\\
+
+\bibitem[Dubrawski 1994]{robotsensa1}					%robot sensor
+\leavevmode \\A. Dubrawski and P. Reignier:
+\newblock ``Learning to Categorize Perceptual Space of a Mobile Robot Using Fuzzy-ART Neural Network.''
+\newblock Proceeding of the IEEE/RSJ/GI International Conference on Intelligent Robots and Systems 1994, Vol. 2, pp.1272-1277, 1994.
+%\\
+
+\bibitem[Fod 2002]{track2}			%トラッキング
+\leavevmode \\A. Fod, A. Howard and M. J. Mataric:
+\newblock ``A Laser-Based People Tracking.''
+\newblock Proceedings of IEEE International Conference on Robotics and Automation, pp. 3024-3029, 2002.
+%\\
+
+\bibitem[Hirai 1998]{ヒューマノイドロボット}		%需要
+\leavevmode \\K. Hirai, M. Hirose, Y. Haikawa and T.Takenaka:
+\newblock ``The Development of he Honda Humanoid Robot.''
+\newblock Proceedings of IEEE International Conference on Robotics and Automation, Vol. 2, pp. 1321-1326, 1998.
+%\\
+
+\bibitem[Hoover 2000]{envsen1}				%env_sensor
+\leavevmode \\A. Hoover and B. D. Olsen:
+\newblock ``Sensor Network Perception for Mobile Robotics.''
+\newblock Proceedings of IEEE International Conference on Robotics and Automation, Vol. 1, pp. 342-347, 2000.
+%\\
+
+\bibitem[Kambhampati 1986]{old4}		%古い回避
+\leavevmode \\S. Kambhampati and L. S. Davis:
+\newblock ``Multiresolution Path Planning for Mobile Robots,''
+\newblock IEEE Journal of Robotics and Automation, Vol.2, No. 3, pp.135-145, 1986.
+%\\
+
+\bibitem[Khatib 1986]{old1}		%古い回避
+\leavevmode \\O. Khatib:
+\newblock ``Real-Time Obstacle Avoidance for Manipulators and Mobile Robots.''
+\newblock The International Journal of Robotics Research, Vol. 5, No. 1, pp. 90-98, 1986.
+%\\
+
+\bibitem[Kindratenko 1999] {denji_s}			%各種センサ
+\leavevmode \\V. Kindratenko:
+\newblock ``Calibration of Electromagnetic Tracking Devices.''
+\newblock Virtual Reality, Vol. 4, No. 2, pp. 139-150, 1999.
+%\\
+
+\bibitem[Kluge 2001]{track3}			%トラッキング
+\leavevmode \\B. Kluge, C. Kohler and E. Prassler:
+\newblock ``Fast and Robust Tracking of Multiple Moving Objects with a Laser Range Finder.''
+\newblock  Proceedings of IEEE International Conference on Robotics and Automation, Vol. 2, pp. 1683-1688, 2001.
+%\\
+
+\bibitem[Kr\"{o}se 1992]{robotsensa2}					%robot sensor
+\leavevmode \\B.J.A.  Kr\"{o}se, J.Dam:
+\newblock ``Adaptive State Space Quantisation for Reinforcement Learning of Collision-Free Navigation.''
+\newblock Proceedings of the IEEE/RSJ International Conference on Intelligent Robots and Systems 1992, Vol. 2, pp. 1327-1331, 1992.
+%\\
+
+\bibitem[Lee 2002]{envsen3}				%env_sensor
+\leavevmode \\Lee. J. H and H.Hashimoto:
+\newblock ``Intelligent Space - consept and  contents.''
+\newblock Advanced Robotics, Vol. 16, No. 3, pp. 265-280, 2002.
+%\\
+
+
+\bibitem[Lee 2004]{yoso6}			%prediction
+\leavevmode \\K. K. Lee and Y. Xu:
+\newblock ``Boundary Modeling in Human Walking Trajectory Analysis for Surveillance.''
+\newblock  Proceedings of IEEE International Conference on Robotics and Automation, Vol. 5, pp. 5201-5205, 2004.
+%\\
+
+\bibitem[Lozano-Perez 1979]{old3}		%古い回避
+\leavevmode \\T. Lozano-Perez and M. A. Wesley:
+\newblock ``An algorithm for Planning Collision-free Paths among Polyhedral Obstacles.''
+\newblock Communications of the Association for Computing Machinery, Vol. 22, No. 10, pp. 560-570, 1979.
+%\\
+
+\bibitem[Montemerlo 2002]{案内ロボット2}		%需要
+\leavevmode \\M. Montemerlo, J. Pineau, N. Roy, S. Thrun and V. Verma:
+\newblock ``Experiences with a Mobile Robot Guide for the Elderly.''
+\newblock Proceedings of the Eighteenth National Conference on American Association for Artificial Intelligence(AAAI2002), pp.587-592, 2002.
+%\\
+
+\bibitem[Morishita 2008]{yoso1}			%prediction
+\leavevmode \\S. Morishita, A. Nishimura and H. Asama:
+\newblock ``A Method to Estimate Destination of a Walking with Hidden Markov Model for Safety of Human Friendly Robots.''
+\newblock IEEE International Workshop on Safety, Security and Rescue Robotics 2008（SSRT2008）, pp. 115-120, 2008.
+%\\
+
+\bibitem[Nakadai 2002]{コミュニケーションロボット2}		%需要
+\leavevmode \\K. Nakadai, H. G. Okuno and H. Kitano:
+\newblock ``Exploiting Auditory Fovea in Humanoid-Human Interaction,''
+\newblock Proceedings of the Eighteenth National Conference on  American Association for Artificial Intelligence (AAAI-2002), pp. 431-438, 2002.
+%\\
+
+\bibitem[Pahlavan 2000]{denpa_s}			%各種センサ
+\leavevmode \\K. Pahlavan, X. Li, M. Ylianttila, R. Chana and M. Latva-aho:
+\newblock ``An Overview of Wireless Indoor Geolocation Technique and systems.''
+\newblock Proceedings of the IFIP-TC6/European Commission International Workshop on Mobile and Wireless Communication Networks, NETWORKING '00, pp. 1-13, 2000.
+%\\
+
+\bibitem[Prassler 1999]{track4}			%トラッキング
+\leavevmode \\E. Prassler, J. Scholz and A. Elfes:
+\newblock ``Tracking People in a Railway Station during Rush Hour.''
+\newblock Proceedings of the International Conference on Computer Vision Systems ,Vol. 1542, pp. 162-179, 1999.
+%\\
+
+\bibitem[Sogo 2001]{envsen2}				%env_sensor
+\leavevmode \\T. Sogo, H. Ishiguro and T. Ishida:
+\newblock ``Mobile Robot Navigation by a Distributed Vision System.''
+\newblock New Generation Computing, Vol. 19, No. 2, pp. 121-137, 2001.
+%\\
+
+\bibitem[Tadokoro 1993]{yoso5}			%prediction
+\leavevmode \\S. Tadokoro, Y. Ishikawa, T. Takebe and T. Takamori:
+\newblock ``Stochastic Prediction of Human Motion and Control of Robots in the Service of Human.''
+\newblock Proceedings of the IEEE International Conference on Systems, Man and Cybernetics, Vol. 1, pp. 50-508, 1993. 
+%\\
+
+%\bibitem{yoso7}			%prediction書式未定性
+%Thompson, S, Horiuchi, T.  Kagami, S.
+%\newblock  A probabilistic model of human motion and navigation intent for mobile robot path planning
+%\newblock  Autonomous Robots and Agents, 2009. ICARA 2009. 4th  ,pp. 663-668 . 2009
+%\\
+
+\bibitem[Want 1992]{activ_s}			%各種センサ
+\leavevmode \\R.Want, A.Hopper, V.Falco and J.Gibbons:
+\newblock ``Active Badge Location System.''
+\newblock Association for Computing Machinery Transactions on Information Systems, Vol. 10, No. 1, pp. 91-102, 1992.
+%\\
+
+\end{thebibliography}

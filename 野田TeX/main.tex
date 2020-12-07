@@ -1,0 +1,123 @@
+\documentclass[12pt]{jsbook}
+\usepackage{pethesis}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{subfigure}
+\usepackage{cite}
+\usepackage{minitoc}
+\usepackage{hhline}
+\usepackage{slashbox}
+\usepackage{booktabs}
+\usepackage[dvipdfmx, usenames]{color}
+\usepackage{comment}
+\usepackage{ulem}
+\usepackage{url}
+\renewcommand\UrlFont{\rmfamily}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{color}
+\usepackage{latexsym}
+\usepackage{ascmac}
+\usepackage{subfig}
+\usepackage{xbmkanji}
+\usepackage[labelsep=quad]{caption}
+\usepackage{color}
+%\usepackage{otf}
+
+\renewcommand{\refname}{}
+
+\newcommand\whline{%
+     \noalign{\xdef\origarrayrulewidth{\the\arrayrulewidth}%
+     \global\arrayrulewidth 3\arrayrulewidth}%
+     \hline%
+     \noalign{\global\arrayrulewidth\origarrayrulewidth}%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newif\iffigure
+%\figurefalse
+\figuretrue
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% SYMBOL DEFINITIONS
+\newcommand{\uvec}[1]{\boldsymbol{\hat{\textbf{#1}}}}
+\newcommand{\matr}[1]{\mathtt{#1}}
+\newcommand{\img}[1]{\mathbb{#1}}
+\newcommand{\argmin}{\mathop{\rm arg~min}\limits}
+%\newcommand{\bm}[1]{{\mbox{\boldmath $#1$}}}
+
+%\setlength{\subfigtopskip}{-10pt}
+%\setlength{\subfigcapskip}{-10pt}
+%\setlength{\subfigbottomskip}{-10pt}
+%\setlength{\abovecaptionskip}{-10pt}
+%\setlength{\belowcaptionskip}{-10pt}
+
+%
+% 論文の表紙の項目
+%
+\thesistype{2019年度 修士論文}
+\title{\vspace{-7mm}直線特徴に基づく\\全天球カメラの高速な位置姿勢推定}
+\etitle{Fast Localization of Spherical Camera \\Using Line Information}
+\affiliation{東京大学大学院 工学系研究科 精密工学専攻}
+\supervisor{山下 淳 准教授}
+\studentid{37-186282}
+\author{野田　純平}
+
+\begin{document}
+\dominitoc
+%表紙
+\maketitle
+%概要
+%\thispagestyle{empty}
+%\thispagestyle{empty}
+%\input{./Frontmatter/abst}
+
+\frontmatter
+%目次
+\tableofcontents
+%図目次
+\listoffigures
+%表目次
+\listoftables
+
+%
+%以下本文
+{\mainmatter
+\setcounter{page}{1}
+\input{./chap1/chap1}
+\input{./chap2/chap2}
+\input{./chap3/chap3}
+\input{./chap4/chap4}
+\input{./chap5/chap5}
+\input{./chap6/chap6}
+\cleardoublepage
+}
+
+%
+%謝辞
+\addcontentsline{toc}{chapter}{謝辞}
+\input{./Backmatter/Thank}
+\cleardoublepage
+	
+%参考文献
+\bibliographystyle{junsrt}
+\bibliography{ref}
+\addcontentsline{toc}{chapter}{参考文献}
+\input{./ref}
+\cleardoublepage
+
+%研究業績
+\addcontentsline{toc}{chapter}{研究業績}
+\input{./Backmatter/Achieve}
+\cleardoublepage
+%
+%
+%%付録
+%\appendix
+%%\input{./Appendix/appendix_A}
+%%\input{./Appendix/appendix_B}
+%%\input{./Appendix/appendix_C}
+\cleardoublepage
+%
+% 論文の最後
+%
+\end{document}
